@@ -1,0 +1,357 @@
+{
+  "appVersion": "3.0.2",
+  "fileCount": 71,
+  "maxUploadFileBytes": 26214400,
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2052,
+      "sha256": "255a21da86978f07e8802ebc7460b95cf1b8044941aeb63802f426dd585adc8a"
+    },
+    {
+      "path": "TRIAGE wersja 2.html",
+      "bytes": 1073233,
+      "sha256": "7ce79ae8b99bd422c8dcc9ea37f00170a03bd2aba2840c47917652af890cb33f"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2001495,
+      "sha256": "00cb482d8289bddbc7a8e03453cf932a260a35b85076532aa2a8906042f04804"
+    },
+    {
+      "path": "materialy-erc-2025/10_-_Tachyarrhythmia_A_ENG_V2.0.pdf",
+      "bytes": 1209087,
+      "sha256": "f560aa2500e0a9ce64850cb55309d4b3e99ba3fd20232953a79a10b44a62e559"
+    },
+    {
+      "path": "materialy-erc-2025/11_-_Bradycardia_A_ENG_V1.0.pdf",
+      "bytes": 539688,
+      "sha256": "78d09b093e1a8ddc7c85c852ca645dd46d4b4639a783a04c204c2efe777cb0fa"
+    },
+    {
+      "path": "materialy-erc-2025/12_-_In-Hospital_Resuscitation_A_ENG_V1.0.pdf",
+      "bytes": 734502,
+      "sha256": "1b2eeac4b7adeccf4c7c560f4a8645a6f7e04788f0e2f7f88ea588e4581c13e7"
+    },
+    {
+      "path": "materialy-erc-2025/13_-_Special_Circumstances_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 548376,
+      "sha256": "f1959de58efc125f7d2755b51e071a7dbec342c1af6e820cc237b41c5e19b54a"
+    },
+    {
+      "path": "materialy-erc-2025/14_-_Hyperthermia_A_ENG_V1.0.pdf",
+      "bytes": 758894,
+      "sha256": "7ac5a5e2bc4ff6853251c168c70aadb048d37465fa6061bfe2fa4c29b03ef479"
+    },
+    {
+      "path": "materialy-erc-2025/15_-_Hypothermia_A_ENG_V2.0.pdf",
+      "bytes": 1489327,
+      "sha256": "127eb1669d474e6bc5ef6c6d7e2dbcd46c3c27122a06a179c967f98fb6978438"
+    },
+    {
+      "path": "materialy-erc-2025/16_-_Traumatic_cardiac_arrest_A_ENG_V1.0.pdf",
+      "bytes": 737540,
+      "sha256": "e8879de721028c622c24cc931378d0055703df4bfc9ed29fd3ffd708bfec3001"
+    },
+    {
+      "path": "materialy-erc-2025/17_-_Cardiac_Catheterisation_P_ENG_V1.0.pdf",
+      "bytes": 601765,
+      "sha256": "1cfd5c5ac804a5952625bb7ca781107d273d23775498f7aef25570efb41b9218"
+    },
+    {
+      "path": "materialy-erc-2025/18_-_Cardiac_Surgery_P_ENG_V1.0.pdf",
+      "bytes": 759652,
+      "sha256": "a7186bb8a96400abd7358c4e8d575a25d54cd607c002544b7c9d151140b57be4"
+    },
+    {
+      "path": "materialy-erc-2025/19_-_Adult_CoronaryThrombosis_P_ENG_V1.0.pdf",
+      "bytes": 692971,
+      "sha256": "6a1050ced67cea22e51cfdc369e20bd7665b8e67d21bb9046beef9a144a597d9"
+    },
+    {
+      "path": "materialy-erc-2025/1_-_The_chain_of_survival_P_EN_V1.0.pdf",
+      "bytes": 381261,
+      "sha256": "f900a82a4dac409331a08790ce120e3464f7d2654f4d8c0e1eb00256b04a2232"
+    },
+    {
+      "path": "materialy-erc-2025/20_-_Treatment_Hyperkalaemia_A_ENG_V1.0.pdf",
+      "bytes": 597919,
+      "sha256": "aeaf658f2df8623259dd433ca32c4db289f444377cea4fd946d6047817c51818"
+    },
+    {
+      "path": "materialy-erc-2025/21_-_Hypokalaemia_A_ENG_V1.0.pdf",
+      "bytes": 815920,
+      "sha256": "58b40a6be01129b650ed82702e851a83325ea5622e676ad2f7413c6dea054917"
+    },
+    {
+      "path": "materialy-erc-2025/22_-_Post_Resus_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 758288,
+      "sha256": "e73ef08d442905ff8af3626f4a5fcdeb167e894f268e9dea19ec1e8f13ef2afc"
+    },
+    {
+      "path": "materialy-erc-2025/23_-_Post_Resus_A_ENG_V1.0.pdf",
+      "bytes": 766515,
+      "sha256": "a911c9d1c84bddbeaa74a83c7413018c1d14bf4c61c97bb18cb75189605d6121"
+    },
+    {
+      "path": "materialy-erc-2025/24_-_Organ_Donation_A_ENG_v1.0.pdf",
+      "bytes": 223487,
+      "sha256": "0d3a5d53126b253afb4663409ca86d96b55c2d110bfd903fd285536328547261"
+    },
+    {
+      "path": "materialy-erc-2025/25_-_Follow_up_A_ENG_V1.0.pdf",
+      "bytes": 259171,
+      "sha256": "4f30e8dcbb9172b75c18ee46bda371bcb649a4ad400fad1f96a64b665f39f2b2"
+    },
+    {
+      "path": "materialy-erc-2025/26_-_NLS_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 519777,
+      "sha256": "ecc27efee156527b1b2dd8c2aea1fb59d7040ce0b9761e312ccc49b8e48accd5"
+    },
+    {
+      "path": "materialy-erc-2025/27_-_NLS_algorithm_A_ENG_V1.0.pdf",
+      "bytes": 943927,
+      "sha256": "58c2a847091158a69046e910ce52480fe23233477cd2c5762c56bb7d62646b1e"
+    },
+    {
+      "path": "materialy-erc-2025/28_-_PLS_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 953562,
+      "sha256": "a83956d98475826c532f04d83b450b0cfcbc8d27d533b7b377d6166cc3e94ecb"
+    },
+    {
+      "path": "materialy-erc-2025/29_-_PLS_FBAO_A_ENG_V1.0.pdf",
+      "bytes": 251647,
+      "sha256": "5b95f7ef2e4e863123a585e0ef3e8013b7cf72beed9de787fd156d7f63e736ea"
+    },
+    {
+      "path": "materialy-erc-2025/2_-_Epidemiology_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 1507556,
+      "sha256": "1fb5dcc8203daefdcb2398c7b15ea8965486d5a0b653db83841500fef5bc58f4"
+    },
+    {
+      "path": "materialy-erc-2025/30_-_EPALS_Algorithm_A_ENG_V1.0.pdf",
+      "bytes": 1077390,
+      "sha256": "801387e542d12b0a06715627466daf82d547cdefcc94b2de1ed882b4200eeb20"
+    },
+    {
+      "path": "materialy-erc-2025/31_-_PLS_Status_Epilecticus_A_ENG_V1.0.pdf",
+      "bytes": 1025265,
+      "sha256": "caf4ff4c6dbc5083302c772a451b199e0f39903aa95255199be269e80b3a2454"
+    },
+    {
+      "path": "materialy-erc-2025/32_-_Education_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 660167,
+      "sha256": "1e90d3e3ec7d8a88930e8a9d9e71bf4cc23640583184e8caac44b745fe99ebc7"
+    },
+    {
+      "path": "materialy-erc-2025/33_-_Utstein_Formula_P_ENG_V1.0.pdf",
+      "bytes": 63438,
+      "sha256": "3f19a4cf07c64e270f941dec55034c10a7597f5971e22a215360029f6b8823ad"
+    },
+    {
+      "path": "materialy-erc-2025/34_-_Ethics_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 436397,
+      "sha256": "23bd8c81e033af457afc694af0fc3afa5b9d61b34d06a2b103c7978988b85382"
+    },
+    {
+      "path": "materialy-erc-2025/35_-_Key_Ethical_Considerations_P_ENG_V1.0.pdf",
+      "bytes": 454842,
+      "sha256": "aa20e08d145e242170cd4013241d6c8f868a017b3b430a57aac2da2ab8b394e4"
+    },
+    {
+      "path": "materialy-erc-2025/36_-_First_Aid_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 523614,
+      "sha256": "9a546a21ee74cef32cce75cb174eb9e1a03c341cde2046ce6f62958d8a34fa40"
+    },
+    {
+      "path": "materialy-erc-2025/37_-_Order_of_actions_opioid_overdosis_A_ENG_V1.0.pdf",
+      "bytes": 339150,
+      "sha256": "eb5e9c3991b6cee8c4bc88137ef8a43727bed1eebd4c358f86437671b1246a19"
+    },
+    {
+      "path": "materialy-erc-2025/38_-_First_Aid_Drowing_A_ENG_V1.0.pdf",
+      "bytes": 592289,
+      "sha256": "1c50584b520a477479930180624d0fd4680bf555501be39f084d9ffac200dc81"
+    },
+    {
+      "path": "materialy-erc-2025/39_-_First_aid_algorithm_A_ENG_V1.0.pdf",
+      "bytes": 589847,
+      "sha256": "17e10ec244ddbd3fef11ece1c1599a67e6f9c0794452a8af7d33ae72b7c89597"
+    },
+    {
+      "path": "materialy-erc-2025/3_-_SSL_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 930125,
+      "sha256": "2baeaeef9e88908233240b9ba233a006c94735c2e1ed62ac7d6aa4ba6cbb3ebe"
+    },
+    {
+      "path": "materialy-erc-2025/4_-_BLS_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 260217,
+      "sha256": "01a8fb4ec75d1357fee03a455a22c0ff00e63472546a47c7c15a7d1dfd88dc66"
+    },
+    {
+      "path": "materialy-erc-2025/5_-_3_steps_to_save_a_life_P_ENG_V1.0.pdf",
+      "bytes": 267652,
+      "sha256": "37d5e32162f48e91b00625a5fd6344e565ef3f5545a7641f19b691abf3e25b13"
+    },
+    {
+      "path": "materialy-erc-2025/6_-_Universal_BLS_algorithm_A_ENG_V1.0.pdf",
+      "bytes": 483897,
+      "sha256": "cbc05f3aba794cc0c0d447e431106deaf1ddaf237085a64ffcaa126de69e20b1"
+    },
+    {
+      "path": "materialy-erc-2025/7_-_BLS_Step_by_Step_P_ENG_V1.0.pdf",
+      "bytes": 1898609,
+      "sha256": "45a81436c5c53fd38abf8fbc70f07203b3cfef29f03d7014c361649b900f3148"
+    },
+    {
+      "path": "materialy-erc-2025/8_-_ALS_Key_Messages_P_ENG_V1.0.pdf",
+      "bytes": 269604,
+      "sha256": "6707dcdb60cd943a1e06bc98eefbd4f690786858aeb4a7b115148678ea044bd1"
+    },
+    {
+      "path": "materialy-erc-2025/9_-_ALS_Algorithm_A_ENG_V1.0.pdf",
+      "bytes": 917776,
+      "sha256": "2e29f25be8cb060e361a0886b836cda8e1b0852784f91f6dfbdfdc14978f13d0"
+    },
+    {
+      "path": "materialy-erc-2025/Adult_Basic_Life_Support_(leaflet)_-_GL2025_(E_-_v1.1).pdf",
+      "bytes": 1752045,
+      "sha256": "3d1174eff89a56aa3517c857d7207fbc8e60e9d647ad0615432acad559ec6750"
+    },
+    {
+      "path": "materialy-erc-2025/Adult_Post-Resuscitation_Care_algorithm_(pocketcard)_-_GL2025_(E).pdf",
+      "bytes": 1336015,
+      "sha256": "1eeb5170e0e2250c656dcccd0936012d5153553e76b56185cb4320eba5b77df0"
+    },
+    {
+      "path": "materialy-erc-2025/Adult_Traumatic_Cardiac_Arrest_algorithm_(pocketcard)_-_GL2025_(E).pdf",
+      "bytes": 825831,
+      "sha256": "ec7c0e61df2d8a44e9d5eac7b4929de1a316a76f8b75d8ccc05fa6f61c716869"
+    },
+    {
+      "path": "materialy-erc-2025/Adult_advanced_life_support_algorithm_(pocketcard)_-_GL2025_(E).pdf",
+      "bytes": 2234984,
+      "sha256": "02e76b85dea4624a626d7a4694ce30cb41882ebc9c592f0ffb6988c3a52b807a"
+    },
+    {
+      "path": "materialy-erc-2025/Education_for_Resuscitation_(leaflet)_-_GL2025_(E).pdf",
+      "bytes": 1895914,
+      "sha256": "92b36f578767c1b8aade416045abd1903d3dd8a7e0a6e64c70daa33e51449821"
+    },
+    {
+      "path": "materialy-erc-2025/Epidemiology_of_Resuscitation_(leaflet)_-_GL2025_(E).pdf",
+      "bytes": 240641,
+      "sha256": "3d41df8aa234cdf9ea0f931ff52a69d71a2601524f8a89f24f4f66848707b546"
+    },
+    {
+      "path": "materialy-erc-2025/Ethics_in_Resuscitation_(leaflet)_-_GL2025_(E).pdf",
+      "bytes": 1800234,
+      "sha256": "3db9f4246eb4f71f8bac251df3eb69c0ade33f6ca80a2b861e99740bb03827d2"
+    },
+    {
+      "path": "materialy-erc-2025/First_Aid_(leaflet)_-_GL2025_(E).pdf",
+      "bytes": 2430130,
+      "sha256": "c8b108f9efbea5349461af25a9b302f2b68ada2fb35de087b485d25b4d610e3b"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_01_-_EXEC_(E).pdf",
+      "bytes": 14137862,
+      "sha256": "1fcdc8884a692b0bdca97a10eb9345aac0f5279c4ea38504c2bfca39ec922c2b"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_01_-_EXEC_(PL).pdf",
+      "bytes": 20976733,
+      "sha256": "475ce27abfd67bb4cd4c7f1ce10596d749476960d1199bb12386d4cadeba8f33"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_02_-_EPI_(E).pdf",
+      "bytes": 3125519,
+      "sha256": "5786b932bee95c1630f281b5353a9f68ac33d1e280f6b0212ca3373c057e669f"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_03_-_SSL_(E).pdf",
+      "bytes": 5911676,
+      "sha256": "875dfd74ef4f31d786f71d459b2e422006a07183578e6e8a29e9d463ff15ce47"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_04_-_BLS_(E).pdf",
+      "bytes": 6653537,
+      "sha256": "046f832544691e16872fdd9de49a8ce2382840f6b7ef510848eef76b63b9eebe"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_05_-_ALS_(E).pdf",
+      "bytes": 4474010,
+      "sha256": "d027a0feb640ab44ec9f0f5b0cb1656c762974f58e5216f748ffaa67b8f7e001"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_06_-_SPEC_CIRC_(E).pdf",
+      "bytes": 10270009,
+      "sha256": "9eb2571afe9890cc83bbaca6fdab8f11b173d4d9f383df077f979f43f26f409b"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_07_-_POST_(E).pdf",
+      "bytes": 3978201,
+      "sha256": "75f4d1ec757be9f71fcc2cc8c14b554f8b42d6bfaa941f97b33c4a403b445fe8"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_08_-_NLS_(E).pdf",
+      "bytes": 3439222,
+      "sha256": "1a76c7f1075d356d3fe35fdce39292f1288bdc28eb1bc7a7b206bc3059a3a02c"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_09_-_PLS_(E).pdf",
+      "bytes": 8617069,
+      "sha256": "9ebfe97ee6f921c004ad6e8fb62e8b648d6e30b81c6491e015499e3f22819b06"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_10_-_EDU_(E).pdf",
+      "bytes": 1340801,
+      "sha256": "6d2469f69cf36c6f483da539c74e4ac0131d8e4e2255cf3347f4ecf2c3e777ae"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_11_-_ETHICS_(E).pdf",
+      "bytes": 1784429,
+      "sha256": "4f88b06e9b257d5f6bb9b3b44450e8734eb960051a54cdefad37de9189646f42"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_12_-_FAID_(E).pdf",
+      "bytes": 3642019,
+      "sha256": "e9e10da044bfc9f8e2d423e7b7e0557ee091040db04168d378959e0a1f0547cc"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_-_12_-_FAID_(PL).pdf",
+      "bytes": 4576460,
+      "sha256": "5f0bb890730432c8a66fc8b491696b728da3d3cfbff746381cc2d2ff6bd62bf2"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_layperson_book(v1.0-PL).pdf",
+      "bytes": 11503509,
+      "sha256": "2dd3a5eb3957f9602e6d231fe2ebb47d2194a0b7189de59c3a7df213df256488"
+    },
+    {
+      "path": "materialy-erc-2025/GL2025_layperson_book_iPDF_(v1.1-E).pdf",
+      "bytes": 17446129,
+      "sha256": "b5a39510ef33ecacd94591bc01c179ed4aaf5fcb3f0a3a9edaf5968aca2e5afb"
+    },
+    {
+      "path": "materialy-erc-2025/Neonatal_life_support_algorithm_(pocketcard)_-_GL2025_(E).pdf",
+      "bytes": 1402641,
+      "sha256": "e7a3dfd031134b648a3d7e1b0aa7710f7e0e3514d2bcc5ac31a02939b72ca05a"
+    },
+    {
+      "path": "materialy-erc-2025/Paediatric_advanced_life_support_algorithm_(pocketcard)_-_GL2025_(E).pdf",
+      "bytes": 1665625,
+      "sha256": "79065fb981868f293499a41aebbbc7cf1dfaeb6ba2601d1d726927b585ae1821"
+    },
+    {
+      "path": "materialy-erc-2025/Systems_Saving_Lives_(leaflet)_-_GL2025_(E).pdf",
+      "bytes": 1931308,
+      "sha256": "f05aa9582a70c03f68f08c7759471d558892111c441bc5d035f98f8dfe6b14de"
+    }
+  ]
+}
