@@ -1495,11 +1495,15 @@ body.dark-mode .pro-warning,body.dark-mode .pro-validation-item.warning,body.dar
 
 @media print{#printArea .print-pro-followup{break-before:page;page-break-before:always}#printArea .print-pro-page{display:block!important;break-inside:auto}#printArea .print-pro-admission>.print-pro-vitals{margin-top:4mm}#printArea .print-pro-report{font-size:10pt!important;line-height:1.35!important}}
 
+.ecg-differential{margin:20px 0}.ecg-differential>details{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:10px}.ecg-differential summary{font-weight:700;cursor:pointer}.ecg-dx-lead-row{display:grid;grid-template-columns:45px minmax(0,1fr) minmax(0,1fr);gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.ecg-dx-lead-row label{font-size:12px}.ecg-dx-finding{padding:14px;margin:12px 0;border:1px solid var(--line);border-left:4px solid #397c98;border-radius:10px;overflow-wrap:anywhere}.ecg-dx-finding.urgent{border-left-color:#b24734}.ecg-dx-finding h4{font-size:16px;margin:0 0 8px}.ecg-dx-finding p{font-size:14px;line-height:1.6}.ecg-dx-status{padding:12px;border:1px solid var(--line);border-radius:8px;font-weight:700}.ecg-dx-status[data-level=urgent]{background:#fff1e9;color:#843522}.ecg-differential textarea{min-height:110px}.ecg-dx-ratios{font:13px/1.6 var(--mono);overflow-wrap:anywhere}#ecg-dx-review-text{min-height:45vh}@media(max-width:550px){.ecg-dx-lead-row{grid-template-columns:1fr 1fr}.ecg-dx-lead-row>strong{grid-column:1/-1}}
+
+@media print{.ecg-differential,.ecg-dx-results{display:none!important}}
+
 </style>
 <script>
 /* RatMed PRO: stałe wydania. Baza wiedzy ma własny numer wersji. */
 window.TriagePro={
- config:Object.freeze({appVersion:'3.0.3',schemaVersion:3,databaseName:'ratmed-triage-pro',databaseVersion:1,maxImportBytes:50*1024*1024,maxPackBytes:5*1024*1024,recoveryLimit:8,autoRecoveryMinutes:10}),
+ config:Object.freeze({appVersion:'3.0.4',schemaVersion:3,databaseName:'ratmed-triage-pro',databaseVersion:1,maxImportBytes:50*1024*1024,maxPackBytes:5*1024*1024,recoveryLimit:8,autoRecoveryMinutes:10}),
  state:{ready:false,dirty:false,saving:false,saveError:'',current:null,records:[],lastSavedAt:null,mode:'work',restoring:false},
  events:new EventTarget(),
  on(name,handler){this.events.addEventListener(name,event=>handler(event.detail));},
@@ -12381,7 +12385,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const step=(n,title,body,open=false)=>`<details class="ecg-step" ${open?'open':''}><summary><span class="step-num">${n}</span>${title}</summary><div class="ecg-step-content">${body}</div></details>`;
  const help=text=>`<div class="ecg-help">${text}</div>`;
  const ecg=$('triage-panel-ecg').querySelector('.sheet');
- ecg.innerHTML=`<div class="clinical-intro"><div class="clinical-icon">∿</div><div><h3>EKG krok po kroku</h3><p>Najpierw jakość zapisu, potem rytm i pomiary. Na końcu gotowy opis do sprawdzenia.</p></div></div><p class="v2-note">Pomoc do opisu i nauki. Nie odczytuje zdjęcia EKG i nie rozpoznaje zawału. Wpisuj to, co rzeczywiście oceniono; przy niepewności zostaw „nie oceniono”.</p><div id="ecg_child" class="ecg-child-note" hidden>Pacjent poniżej 18 lat: podane zakresy orientacyjne dla dorosłych nie służą do oceny EKG dziecka.</div><div class="ecg-steps">
+ ecg.innerHTML=`<div class="clinical-intro"><div class="clinical-icon">∿</div><div><h3>EKG krok po kroku</h3><p>Najpierw jakość zapisu, potem rytm i pomiary. Na końcu gotowy opis do sprawdzenia.</p></div></div><p class="v2-note">Opis, nauka i wsparcie różnicowania na podstawie wpisanych danych. Nie odczytuje zdjęcia ani nie potwierdza zawału samodzielnie. Wpisuj to, co rzeczywiście oceniono; przy niepewności zostaw „nie oceniono”.</p><div id="ecg_child" class="ecg-child-note" hidden>Pacjent poniżej 18 lat: podane zakresy orientacyjne dla dorosłych nie służą do oceny EKG dziecka.</div><div class="ecg-steps">
  ${step(1,'Sprawdź zapis i ustawienia',help('Sprawdź dane pacjenta, kontakt elektrod, zakłócenia oraz prędkość i wzmocnienie zapisane na wydruku. Ustawień nie zgaduj.')+`<div class="clinical-grid">${field('ecg_time','Godzina wykonania','time')}${select('ecg_type','Rodzaj zapisu',['12-odprowadzeniowe','Zapis z monitora','Inny zapis'])}${select('ecg_quality','Jakość',['Zapis czytelny','Zakłócenia — ocena ograniczona','Zapis nie nadaje się do oceny'])}${select('ecg_speed','Prędkość papieru (mm/s)',['25','50'])}${select('ecg_gain','Wzmocnienie (mm/mV)',['10','5','20'])}</div><p id="ecg_grid_help" class="v2-note">Wybierz prędkość, aby przeliczyć kratki na czas.</p>`,true)}
  ${step(2,'Częstość i miarowość',help('Porównaj odstępy między kolejnymi szczytami R. Podobne odstępy: rytm miarowy. Wyraźnie zmienne: niemiarowy. Zapis z zakłóceniami może uniemożliwiać ocenę.')+`<div class="clinical-grid">${field('ecg_rate','Częstość komór (/min)','number','np. 75')}${select('ecg_regular','Odstępy R–R',['Miarowe','Niemiarowe'])}</div><details class="ecg-calc"><summary>Policz częstość z kratek</summary><p class="v2-note">Tylko dla miarowego rytmu i znanej prędkości. Zmierz odstęp między dwoma kolejnymi szczytami R.</p>${field('ecg_calc_boxes','Liczba dużych kratek R–R','number','np. 4')}<output id="ecg_calc_result">Wybierz prędkość i wpisz liczbę kratek.</output><button type="button" class="btn" id="ecg_use_rate">Przenieś wynik do częstości</button></details>`)}
  ${step(3,'Załamek P i rodzaj rytmu',`<svg class="ecg-schematic" viewBox="0 0 640 155" role="img" aria-label="Schemat jednego pobudzenia: P, QRS, ST i T; nie jest zapisem pacjenta"><defs><pattern id="ecg_grid_pattern" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#edf1f5"/></pattern></defs><rect width="640" height="155" fill="url(#ecg_grid_pattern)"/><path d="M20 100H90 Q105 100 115 80 Q125 64 138 84 Q146 100 158 100 H215 L229 116 L248 22 L268 125 L282 100 H363 Q385 100 401 66 Q424 40 451 79 Q464 100 490 100 H620" fill="none" stroke="#087e8b" stroke-width="3"/><text x="112" y="57">P</text><text x="232" y="16">QRS</text><text x="313" y="86">ST</text><text x="416" y="37">T</text><text x="24" y="145">Schemat edukacyjny — nie służy do pomiarów</text></svg>`+help('P to niewielki załamek przed QRS. Oceń jego obecność i związek z QRS. Sama miarowość nie potwierdza rytmu zatokowego. Jeśli nie umiesz nazwać rytmu, opisz widoczne cechy.')+`<div class="clinical-grid">${select('ecg_p','Załamki P',['Widoczne','Niewidoczne / nie można wyodrębnić'])}${select('ecg_relation','Związek P z QRS',['P poprzedza każdy QRS, stały PR','Związek P–QRS nie jest stały','Nie dotyczy — brak wyraźnych P'])}${select('ecg_rhythm','Rytm — tylko po własnej ocenie lub konsultacji',['Zatokowy','Migotanie przedsionków','Trzepotanie przedsionków','Rytm ze stymulatora','Inny — opis w uwagach','Nie potrafię określić'])}</div>`)}
@@ -12461,9 +12465,10 @@ document.addEventListener('DOMContentLoaded',()=>{
  function addEntry(kind){if(window.TriagePro?.state.readOnly){window.TriagePro.ui.notify('Ta karta jest tylko do podglądu.',true);return;}entries.push({id:crypto.randomUUID(),status:'performed',date:new Date().toLocaleDateString('sv-SE'),kind,time:'',name:'',dose:'',route:'',rate:'',author:'',effect:''});renderEntries();persistEntries();const next=$('tx_entries').lastElementChild;next.querySelector('input[type=text]')?.focus({preventScroll:true});next.scrollIntoView({block:'start',behavior:'smooth'});}
  ['tx_add_drug','tx_add_drug_next'].forEach(id=>$(id).onclick=()=>addEntry('drug'));['tx_add_action','tx_add_action_next'].forEach(id=>$(id).onclick=()=>addEntry('action'));
  const originalBuild=buildSummaryText;
- window.triageClinicalSummaryParts=()=>[originalBuild(),(value('ecg_final')||ecgText())?'EKG:\n'+(value('ecg_final')||ecgText()):'',txText()?'POSTĘPOWANIE:\n'+txText():''];
+ const documentedECG=()=>value('ecg_final')||ecgText();
+ window.triageClinicalSummaryParts=()=>[originalBuild(),documentedECG()?'EKG:\n'+documentedECG():'',txText()?'POSTĘPOWANIE:\n'+txText():''];
  buildSummaryText=function(){return window.triageClinicalSummaryParts().filter(Boolean).join('\n\n');};
- const clinicalBlocks=()=>[(value('ecg_final')||ecgText())?'EKG:\n'+(value('ecg_final')||ecgText()):'',txText()?'POSTĘPOWANIE:\n'+txText():''];
+ const clinicalBlocks=()=>[documentedECG()?'EKG:\n'+documentedECG():'',txText()?'POSTĘPOWANIE:\n'+txText():''];
  let previousClinicalBlocks=clinicalBlocks();
  let restoringClinical=false;
  const updateBeforeClinical=updateSummary;
@@ -13091,6 +13096,170 @@ document.addEventListener('DOMContentLoaded',()=>{
  count.textContent=visible+' z '+rows.length+' zagadnień. Źródła odczytane 24.10.2026. Skróty cech — pełne kryteria w źródłach.';}
  search.oninput=render;groups.onchange=render;
  $('triage-panel-learn').querySelector('.sheet').prepend(atlas);jump.onclick=()=>{$('triage-tab-learn').click();atlas.scrollIntoView({block:'start'});search.focus({preventScroll:true});};render();
+});
+
+</script>
+<script>
+/* Transparent ECG decision support. No image reading or autonomous final diagnosis. */
+(()=>{'use strict';
+ const leads=['I','II','III','aVR','aVL','aVF','V1','V2','V3','V4','V5','V6'],extraLeads=['V3R','V4R','V7','V8','V9'];
+ const sources={acs:'https://www.ahajournals.org/doi/10.1161/CIR.0000000000001309',esc:'https://academic.oup.com/eurheartj/article/44/38/3720/7243210',mi:'https://www.ahajournals.org/doi/10.1161/CIR.0000000000000617',bbb:'https://www.jacc.org/doi/10.1016/j.jacc.2008.12.013',sg:'https://pubmed.ncbi.nlm.nih.gov/26678648/',paced:'https://pubmed.ncbi.nlm.nih.gov/34172301/'};
+ const number=v=>v===undefined||v===null||String(v).trim()===''?null:Number(String(v).replace(',','.'));
+ const regions=[['dolna',['II','III','aVF'],false],['przednia / przegrodowa',['V1','V2','V3','V4'],true],['boczna',['I','aVL','V5','V6'],false]];
+ function adjacent(group,hits,sequence){return sequence?group.some((l,i)=>i>0&&hits.includes(l)&&hits.includes(group[i-1])):group.filter(l=>hits.includes(l)).length>=2;}
+ function analyze(input={}){
+  const d={...input,st:input.st||{},sign:input.sign||{},s:input.s||{},morph:input.morph||{}},findings=[],missing=[],errors=[],notes=[];
+  const add=(id,title,evidence,next,source='acs',urgent=false)=>findings.push({id,title,evidence,next,source:sources[source],urgent});
+  const age=number(d.age),gain=number(d.gain),qrs=number(d.qrs),rpeak=number(d.morph.rpeak),all=[...leads,...extraLeads];
+  for(const [label,value,min,max] of [['wiek',age,0,130],['wzmocnienie',gain,1,100],['QRS (ms)',qrs,10,1000],['czas do szczytu R (ms)',rpeak,1,500]])if(value!==null&&(!Number.isFinite(value)||value<min||value>max))errors.push('Sprawdź pole: '+label+'.');
+  for(const l of all){const v=number(d.st[l]);if(v!==null&&(!Number.isFinite(v)||Math.abs(v)>30))errors.push(l+': ST musi być liczbą od −30 do +30 mm.');const s=number(d.s[l]);if(s!==null&&(!Number.isFinite(s)||s<=0||s>100))errors.push(l+': głębokość S/QS musi być większa od 0 i nie większa od 100 mm.');}
+  const adult=Number.isFinite(age)&&age>=18&&age<=130;
+  if(!adult)missing.push('wiek dorosłego — kryteria tego panelu dotyczą osób ≥18 lat');
+  if(d.quality!=='Zapis czytelny')missing.push('czytelny zapis');
+  if(d.type!=='12-odprowadzeniowe')missing.push('potwierdzenie zapisu 12-odprowadzeniowego');
+  if(![5,10,20].includes(gain))missing.push('rzeczywiste wzmocnienie 5, 10 lub 20 mm/mV');
+  if(!['Odcinek TP','Odcinek PR / połączenie PQ'].includes(d.reference))missing.push('stabilna linia odniesienia ST');
+  if(!d.conduction)missing.push('typ przewodzenia: bez BBB / RBBB / LBBB / stymulacja / inne');
+  if(!d.symptoms)notes.push('Objawy niedokrwienne nieustalone — brak wpisu nie oznacza ich nieobecności.');
+  if(!d.stability)notes.push('Stabilność kliniczna nieustalona.');
+  if(d.stability==='unstable')add('clinical-unstable','Niestabilność kliniczna — pilna ocena', ['Opisujący wskazał niestabilność.'],['Pilna pomoc i ocena lekarska; nie czekaj na spełnienie progów EKG.'],'esc',true);
+  if(d.symptoms==='ongoing')add('clinical-ischemia','Trwające objawy podejrzane o niedokrwienie', ['Objawy zaznaczone przez opisującego.'],['Pilna ocena kliniczna, porównanie i seryjne EKG; niediagnostyczny zapis nie kończy diagnostyki.'],'acs',true);
+  const readable=d.quality==='Zapis czytelny'&&d.type==='12-odprowadzeniowe';
+  const probableR=adult&&readable&&qrs>=120&&d.morph.rsr==='yes'&&d.morph.wideS==='yes';
+  const probableL=adult&&readable&&qrs>=120&&d.morph.broadR==='yes'&&d.morph.noQ==='yes'&&rpeak>60;
+  if(probableR)add('rbbb-morph','Cechy wspierające RBBB', ['QRS '+qrs+' ms; rSR′/rsR′ w V1–V2; szerokie końcowe S w I/V6.'],['Potwierdź pełne kryteria i ustaw „RBBB” jako typ przewodzenia. Sam szeroki QRS nie rozpoznaje bloku.'],'bbb');
+  if(probableL)add('lbbb-morph','Cechy wspierające LBBB', ['QRS '+qrs+' ms; szerokie/zazębione R bocznie, brak q w I/V5/V6; czas do szczytu R '+rpeak+' ms.'],['Potwierdź pełne kryteria i ustaw „LBBB”. Sam nowy LBBB nie jest rozpoznaniem zawału.'],'bbb');
+  if(probableR&&probableL)errors.push('Jednocześnie wskazano morfologię RBBB i LBBB — zweryfikuj cechy.');
+  if(d.conduction==='none'&&(probableR||probableL))errors.push('Cechy sugerują BBB, ale jako typ przewodzenia wskazano brak BBB.');
+  if((d.conduction==='rbbb'&&probableL)||(d.conduction==='lbbb'&&probableR))errors.push('Wybrany typ BBB jest sprzeczny z wpisaną morfologią.');
+  if(['lbbb','rbbb'].includes(d.conduction)&&qrs!==null&&qrs<120)errors.push('Wybrano całkowity BBB przy QRS <120 ms. Sprawdź typ bloku i pomiar.');
+  if(d.conduction==='none'&&d.standardContext==='blocked')errors.push('Zaznaczono brak BBB, lecz wcześniejszy panel ST zgłasza BBB/stymulację/LVH. Uzgodnij ocenę.');
+  if(d.conduction==='none'&&qrs!==null&&qrs>=120)errors.push('QRS ≥120 ms przy wybranym przewodzeniu bez poszerzenia. Ustal przyczynę szerokiego QRS.');
+  if(d.declaredLBBB&&d.conduction&&d.conduction!=='lbbb')errors.push('W liście bloków zaznaczono LBBB, a w panelu inny typ przewodzenia.');
+  if(d.declaredRBBB&&d.conduction&&d.conduction!=='rbbb')errors.push('W liście bloków zaznaczono RBBB, a w panelu inny typ przewodzenia.');
+  if(d.declaredPaced&&d.conduction&&d.conduction!=='paced')errors.push('Opisano rytm ze stymulatora — ustal, czy stymulowane są komory i uzgodnij typ przewodzenia.');
+  const common=adult&&readable&&[5,10,20].includes(gain)&&['Odcinek TP','Odcinek PR / połączenie PQ'].includes(d.reference)&&!errors.length;
+  const mm=l=>{const v=number(d.st[l]);return v===null?null:v*10/gain;};
+  const measured=all.filter(l=>number(d.st[l])!==null);
+  if(!measured.length)missing.push('pomiary ST w odprowadzeniach — puste pole nie oznacza 0 mm');
+  const values=ls=>ls.map(l=>l+' '+(number(d.st[l])>0?'+':'')+d.st[l]+' mm').join(', ');
+  const stdAllowed=common&&(d.conduction==='none'||d.conduction==='rbbb')&&d.lvh==='no';
+  if(['none','rbbb'].includes(d.conduction)&&d.lvh!=='no')missing.push('ocena przerostu lewej komory — do użycia zwykłych progów ST');
+  if(d.conduction==='none'&&d.standardContext!=='eligible')missing.push('potwierdzenie warunków zwykłej oceny ST w wcześniejszym panelu');
+  const standard=stdAllowed&&(d.conduction==='rbbb'||d.standardContext==='eligible');
+  const excluded=d.conduction==='rbbb'?['V1','V2','V3']:[];
+  const threshold=l=>{if(['V2','V3'].includes(l)){if(d.sex==='K')return 1.5;if(d.sex==='M')return age<40?2.5:2;return null;}return 1;};
+  if(standard){
+   const elevated=leads.filter(l=>l!=='aVR'&&!excluded.includes(l)&&mm(l)!==null&&threshold(l)!==null&&mm(l)>=threshold(l));
+   const locations=regions.filter(([,ls,seq])=>adjacent(ls,elevated,seq));
+   if(locations.length){
+    const relevant=[...new Set(locations.flatMap(([,ls])=>ls.filter(l=>elevated.includes(l))))],inferior=locations.some(([name])=>name==='dolna');
+    const acute=d.newness==='new'&&['ongoing','resolved'].includes(d.symptoms);
+    add('regional-ste',(acute?'Podejrzenie zawału z uniesieniem ST':'Uniesienia ST — podejrzenie ostrego niedokrwienia')+'; lokalizacja: '+locations.map(r=>r[0]).join(' + '),['Progi amplitudy w sąsiadujących odprowadzeniach: '+values(relevant)+'.',d.newness==='old'?'Opisano zmiany obecne wcześniej — ostrość wymaga weryfikacji.':d.newness!=='new'?'Nowość zmian nieustalona.':'Zmiany opisano jako nowe / dynamiczne.',...(d.conduction==='rbbb'?['RBBB: porównano tylko odprowadzenia poza V1–V3; potrzebna ocena ekspercka.']:[])],['Pilna ocena lekarska i zapis do oceny w kierunku ostrego zamknięcia tętnicy; sam panel nie potwierdza zawału.',...(inferior?['Wykonaj dodatkowe odprowadzenia prawokomorowe V3R–V4R. II, III i aVF są już w standardowym EKG.']:[])],'acs',true);
+   }
+   if((number(d.st.V2)!==null||number(d.st.V3)!==null)&&!d.sex&&d.conduction!=='rbbb')missing.push('płeć do progów V2–V3');
+   const depression=leads.filter(l=>!excluded.includes(l)&&mm(l)!==null&&mm(l)<=-0.5),horizontal=['horizontal','down'].includes(d.shape);
+   const posterior=['V1','V2','V3'].filter(l=>depression.includes(l));
+   if(d.conduction==='none'&&adjacent(['V1','V2','V3'],posterior,true))add('posterior-suspect','Do wyjaśnienia: możliwe niedokrwienie ściany tylnej', ['Obniżenia ST w '+values(posterior)+'.',horizontal?'Obniżenia poziome / zstępujące.':'Kształt obniżeń nie został potwierdzony.'],['Wykonaj V7–V9; oceń końcowe T i morfologię R oraz kontekst kliniczny. Z samych obniżeń nie rozpoznano zawału tylnego.'],'acs',true);
+   if(horizontal&&regions.some(([,ls,seq])=>adjacent(ls,depression,seq)))add('st-depression','Obraz mogący odpowiadać niedokrwieniu podwsierdziowemu', ['Poziome / zstępujące obniżenia ST ≥0,5 mm w sąsiadujących odprowadzeniach: '+values(depression)+'.'],['Ocena w kierunku OZW, dynamika EKG i troponin w odpowiednim kontekście; nie przypisuj automatycznie konkretnej tętnicy.'],'acs',true);
+   const diffuse=leads.filter(l=>l!=='aVR'&&!excluded.includes(l)&&mm(l)!==null&&mm(l)<=-1);
+   if(diffuse.length>=6&&mm('aVR')!==null&&mm('aVR')>=1)add('diffuse','Rozlane obniżenia ST z uniesieniem w aVR — wzorzec wysokiego ryzyka', ['Obniżenia ≥1 mm w '+diffuse.length+' odprowadzeniach i aVR '+d.st.aVR+' mm.'],['Pilna ocena niedokrwienia i przyczyn klinicznych. Ten wzorzec sam nie rozpoznaje zwężenia pnia lewej tętnicy.'],'esc',true);
+   const postThreshold=d.sex==='M'&&age<40?1:d.sex==='K'||age>=40?0.5:null;
+   const post=extraLeads.filter(l=>['V7','V8','V9'].includes(l)&&mm(l)!==null&&postThreshold!==null&&mm(l)>=postThreshold);
+   if(adjacent(['V7','V8','V9'],post,true))add('posterior-extra','Uniesienia ST w odprowadzeniach tylnych — podejrzenie zawału ściany tylnej', [values(post)+'.'],['Pilna ocena kliniczna i ekspercka interpretacja rozszerzonego zapisu.'],'mi',true);
+   const rightThreshold=d.sex==='M'&&age<30?1:d.sex==='K'||age>=30?0.5:null;
+   const right=['V3R','V4R'].filter(l=>mm(l)!==null&&rightThreshold!==null&&mm(l)>=rightThreshold);
+   if(right.length)add('right-extra','Uniesienia w odprowadzeniach prawych — możliwe zajęcie prawej komory', [values(right)+'.'],['Oceń z zapisem dolnej ściany i stanem hemodynamicznym; potrzebna pilna ocena lekarska.'],'mi',true);
+   if(postThreshold===null&&['V7','V8','V9'].some(l=>number(d.st[l])!==null))missing.push('płeć do progów odprowadzeń tylnych u osoby <40 lat');
+   if(rightThreshold===null&&['V3R','V4R'].some(l=>number(d.st[l])!==null))missing.push('płeć do progów odprowadzeń prawych u osoby <30 lat');
+  }
+  const ratios=[],sgHits=[];
+  const sgEligible=common&&(d.conduction==='lbbb'||d.conduction==='paced'&&d.pacedLike==='yes');
+  if(d.conduction==='paced'&&d.pacedLike!=='yes')missing.push('potwierdzenie morfologii typu LBBB przy stymulacji komór');
+  if(sgEligible){
+   const unassessed=[];
+   for(const l of leads){const st=mm(l),sign=d.sign[l],depth=number(d.s[l]);if(st===null||!['positive','negative'].includes(sign)){unassessed.push(l);continue;}
+    if(sign==='positive'&&st>=1)sgHits.push(l+': zgodne uniesienie ST ≥1 mm');
+    if(['V1','V2','V3'].includes(l)&&sign==='negative'&&st<=-1)sgHits.push(l+': zgodne obniżenie ST ≥1 mm');
+    if(sign==='negative'&&st>=1){if(depth===null){missing.push(l+': głębokość S/QS do stosunku ST/S');continue;}const ratio=number(d.st[l])/depth;ratios.push({lead:l,ratio,signed:-ratio,hit:ratio>=0.25});if(ratio>=0.25)sgHits.push(l+': niezgodne uniesienie ST '+d.st[l]+' mm; ST/|S| = '+ratio.toFixed(3)+' ≥0,25');}
+   }
+   if(unassessed.length)missing.push('Sgarbossa: brak pełnych pomiarów ST / polaryzacji QRS w '+unassessed.join(', '));
+   if(sgHits.length)add('modified-sgarbossa','Spełnione zmodyfikowane kryterium Sgarbossy — podejrzenie ostrego zamknięcia tętnicy',sgHits,['Pilna ocena lekarska / kardiologiczna. To podejrzenie wymagające działania, a nie samodzielne potwierdzenie zawału przez aplikację.'],d.conduction==='paced'?'paced':'sg',true);
+   else notes.push('Nie wykryto dodatniego kryterium Sgarbossy w ocenionych danych. Nie wyklucza to ostrego zamknięcia tętnicy ani zawału; nieocenione odprowadzenia pozostają nieocenione.');
+  }
+  if(d.conduction==='rbbb')notes.push('RBBB: nie stosujemy progu ST/S Sgarbossy. ST–T w V1–V3 mogą być wtórne; przy objawach podejrzanych o niedokrwienie potrzebna jest pilna ocena całego EKG.');
+  if(d.conduction==='lbbb'||d.conduction==='paced')notes.push('LBBB / stymulacja: zwykłe progi lokalizacji STEMI nie zostały zastosowane. Nowy LBBB sam nie rozpoznaje zawału.');
+  if(!standard&&!sgEligible&&measured.length)notes.push('Nie uruchomiono pełnej interpretacji ST: uzupełnij brakujące dane lub wyjaśnij sprzeczności. Pomiary pozostają zapisane.');
+  if(errors.length)notes.push('Do czasu poprawienia błędów wstrzymano ilościową interpretację ST.');
+  if(!findings.length)notes.push('Brak podstaw do konkretnej hipotezy w ograniczonym zestawie reguł tego panelu. To nie oznacza prawidłowego EKG ani wykluczenia OZW.');
+  return {findings,ratios,missing:[...new Set(missing)],errors,notes,status:findings.some(f=>f.urgent)?'urgent':errors.length||missing.length?'incomplete':'review',scope:'Wsparcie interpretacji danych wpisanych przez opisującego; nie jest automatycznym odczytem EKG ani potwierdzonym rozpoznaniem.'};
+ }
+ function parse(text){
+  const proposals={},unrecognized=[],conflicts=[],blocked=new Set();
+  for(const segment of String(text).split(/[;\n]+/).map(s=>s.trim()).filter(Boolean)){
+   const normalized=segment.replace(/[−–]/g,'-');let match=normalized.match(/^(QRS|PR|QTc|QT)\s*[:=]?\s*(\d+(?:[.,]\d+)?)\s*ms$/i),id,value;
+   if(match){id='ecg_'+match[1].toLowerCase();value=String(number(match[2]));}
+   else{match=normalized.match(/^(?:ST\s+)?(aVR|aVL|aVF|III|II|I|V[1-9]R?)\s*[:=]\s*([+-]?\d+(?:[.,]\d+)?)\s*mm$/i);if(match){const lead=[...leads,...extraLeads].find(l=>l.toLowerCase()===match[1].toLowerCase());if(lead){id=leads.includes(lead)?'ecg_st_mm_'+lead:'ecg_dx_st_'+lead;value=String(number(match[2]));if(Math.abs(Number(value))>30)id=null;}}}
+   if(!id){unrecognized.push(segment);continue;}
+   if(blocked.has(id))continue;
+   if(proposals[id]!==undefined&&proposals[id]!==value){conflicts.push(id);delete proposals[id];blocked.add(id);}else proposals[id]=value;
+  }
+  return {proposals,unrecognized,conflicts};
+ }
+ window.TriageECGReasoning={analyze,parse,leads,extraLeads,sources};
+})();
+
+</script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+ 'use strict';const P=window.TriagePro,R=window.TriageECGReasoning,$=id=>document.getElementById(id),ecg=$('triage-panel-ecg');
+ const el=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;};
+ const box=el('section','ecg-analysis-box ecg-differential');box.id='ecg-differential';
+ box.append(el('h3','','Możliwe rozpoznania EKG — wsparcie interpretacji'),el('p','v2-note','Na podstawie ocenionych pól pokażemy hipotezy, uzasadnienie i dalsze odprowadzenia. Panel nie odczytuje obrazu EKG, nie ocenia wszystkich możliwych chorób i nie wyklucza OZW. Hipotezy są widoczne tylko w tym panelu. Nie są dopisywane do karty ani wydruku.'));
+ const grid=el('div','clinical-grid');
+ function select(id,label,options,parent=grid){const wrap=el('div'),lab=el('label','',label),n=el('select');n.id=id;lab.htmlFor=id;for(const [value,text] of [['','Nie ustalono'],...options]){const o=el('option','',text);o.value=value;n.append(o);}wrap.append(lab,n);parent.append(wrap);return n;}
+ function numeric(id,label,parent,min=-30,max=30){const wrap=el('div'),lab=el('label','',label),n=el('input');n.id=id;n.type='number';n.step='0.1';n.min=String(min);n.max=String(max);n.placeholder='nie oceniono';lab.htmlFor=id;wrap.append(lab,n);parent.append(wrap);return n;}
+ select('ecg_dx_conduction','Przewodzenie — po ocenie całego zapisu',[['none','Bez BBB i stymulacji; QRS nieposzerzony'],['rbbb','Całkowity RBBB'],['lbbb','Całkowity LBBB'],['paced','Stymulacja komór'],['other','Inne / niezupełny BBB / IVCD — ocena ekspercka']]);
+ select('ecg_dx_lvh','Przerost lewej komory utrudniający ocenę ST',[['no','Nie stwierdzono w ocenie opisującego'],['yes','Obecny lub podejrzewany']]);
+ select('ecg_dx_symptoms','Objawy mogące odpowiadać niedokrwieniu',[['ongoing','Obecne / trwające'],['resolved','Były, obecnie ustąpiły'],['no','Nie stwierdzono po zebraniu wywiadu']]);
+ select('ecg_dx_stability','Stan kliniczny w chwili oceny',[['unstable','Niestabilny / objawy alarmowe'],['stable','Stabilny w ocenie opisującego']]);
+ select('ecg_dx_shape','Kształt obniżeń ST — jeśli występują',[['horizontal','Poziome'],['down','Zstępujące'],['up','Wstępujące']]);
+ select('ecg_dx_paced_like','Przy stymulacji: czy QRS ma morfologię typu LBBB?',[['yes','Tak — oceniono morfologię'],['no','Nie / inna morfologia']]);box.append(grid);
+ const morphology=el('details'),mgrid=el('div','clinical-grid');morphology.append(el('summary','','Doprecyzuj cechy RBBB / LBBB'),el('p','v2-note','Czas QRS wpisz w kroku „Przewodzenie, oś i odstępy”. Sam QRS ≥120 ms nie rozpoznaje RBBB ani LBBB.'));
+ const yn=[['yes','Tak — oceniono'],['no','Nie — oceniono']];
+ select('ecg_dx_rsr','RBBB: rsr′ / rsR′ / rSR′ w V1 lub V2',yn,mgrid);
+ select('ecg_dx_wide_s','RBBB: końcowe S >40 ms lub dłuższe od R w I i V6',yn,mgrid);
+ select('ecg_dx_broad_r','LBBB: szerokie, zazębione / zatarte R w I, aVL, V5–V6',yn,mgrid);
+ select('ecg_dx_no_q','LBBB: brak q w I, V5 i V6',yn,mgrid);
+ numeric('ecg_dx_rpeak','LBBB: czas od początku QRS do szczytu R w V5/V6 (ms)',mgrid,1,500);morphology.append(mgrid);box.append(morphology);
+ const sg=el('details');sg.id='ecg-dx-sgarbossa-inputs';sg.append(el('summary','','LBBB / stymulacja — polaryzacja QRS i stosunek ST/S'),el('p','v2-note','ST wpisuj w istniejących polach pomiaru w punkcie J. Tutaj oceń w tym samym odprowadzeniu znak QRS oraz głębokość S/QS od linii podstawowej do dołka, jako dodatnią liczbę mm. Dla niezgodnego uniesienia liczymy ST/|S|; próg ≥0,25 dotyczy ST ≥1 mm przy 10 mm/mV. To równoważne zapisowi ST/S ≤−0,25, gdy S ma znak ujemny. Nie stosujemy tego progu do RBBB.'));
+ const stable=el('div','ecg-dx-table');for(const lead of R.leads){const row=el('div','ecg-dx-lead-row');row.append(el('strong','',lead));select('ecg_dx_sign_'+lead,'Wypadkowy QRS '+lead,[['positive','Dodatni'],['negative','Ujemny'],['iso','Równofazowy / niepewny']],row);numeric('ecg_dx_s_'+lead,'Głębokość S/QS '+lead+' (mm)',row,0.1,100);stable.append(row);}sg.append(stable);box.append(sg);
+ const additional=el('details'),exgrid=el('div','clinical-grid');additional.append(el('summary','','Dodatkowe odprowadzenia — wpisz tylko wykonane pomiary'),el('p','v2-note','Ściana dolna: II, III i aVF są w standardowym EKG. V3R–V4R służą ocenie prawej komory; V7–V9 — ściany tylnej. Sugestia wykonania nie oznacza, że odprowadzenia zostały już zarejestrowane.'));
+ for(const lead of R.extraLeads)numeric('ecg_dx_st_'+lead,lead+' — ST w punkcie J (mm)',exgrid);additional.append(exgrid);box.append(additional);
+ const free=el('details'),freeLabel=el('label','','Opis liczbowy do uporządkowania'),freeText=el('textarea');freeText.id='ecg_dx_text';freeLabel.htmlFor=freeText.id;freeText.placeholder='QRS: 140 ms; II: +2 mm; III: +3 mm; aVF: +2 mm';
+ free.append(el('summary','','Mam opis tekstowy — przenieś pomiary po sprawdzeniu'),el('p','v2-note','Rozpoznajemy wyłącznie jednoznaczne zapisy liczbowe z jednostką, oddzielone średnikiem lub nową linią. Swobodnych zdań, negacji ani nazw rozpoznań nie traktujemy jako potwierdzonych pomiarów. Przed przeniesieniem zobaczysz każde pole i jego obecną wartość.'),freeLabel,freeText);
+ const parseButton=el('button','btn','Sprawdź pomiary z tekstu');parseButton.type='button';free.append(parseButton);box.append(free);
+ const status=el('p','ecg-dx-status'),results=el('div','ecg-dx-results');status.id='ecg-dx-status';results.id='ecg-dx-results';results.setAttribute('aria-live','polite');box.append(status,results);
+ box.append(el('p','pro-summary-hint','Tylko dla opisującego — możliwe rozpoznania nie są drukowane na karcie.'));
+ const refs=el('p','clinical-sources','Źródła reguł: ');for(const [key,label] of [['acs','ACC/AHA 2025'],['esc','ESC 2023'],['mi','Definicja zawału — odprowadzenia dodatkowe'],['bbb','AHA/ACCF/HRS — BBB'],['sg','Sgarbossa — LBBB'],['paced','Sgarbossa — stymulacja']]){const a=el('a','',label);a.href=R.sources[key];a.target='_blank';a.rel='noopener';refs.append(a,' · ');}box.append(refs,el('p','v2-note','Reguły i źródła odczytane 24.10.2026. Jest to wsparcie wymagające oceny klinicznej, bez walidacji tego programu do samodzielnego rozpoznawania chorób.'));
+ $('ecg_generated').before(box);
+ const jump=el('button','btn btn-copy','Możliwe rozpoznania i dalsze odprowadzenia ↓');jump.type='button';jump.onclick=()=>{box.scrollIntoView({block:'start'});$('ecg_dx_conduction').focus({preventScroll:true});};ecg.querySelector('.ecg-steps').before(jump);
+ const measurements=el('button','btn','Uzupełnij pomiary ST i jakość zapisu ↑');measurements.type='button';measurements.onclick=()=>{const steps=ecg.querySelectorAll('.ecg-step');steps[0].open=true;steps[4].open=true;steps[4].scrollIntoView({block:'start'});};box.insertBefore(measurements,box.children[2]);
+ function canEdit(){if(!P.state.ready||P.state.readOnly||P.state.draftBlocked||P.state.storageUnavailable){P.ui.notify('Edycja jest zablokowana albo baza nie jest gotowa. Nie zmieniono dokumentacji.',true);return false;}return true;}
+ const value=id=>$(id)?.value.trim()||'';
+ function read(){const st={},sign={},s={};for(const lead of R.leads){st[lead]=value('ecg_st_mm_'+lead);sign[lead]=value('ecg_dx_sign_'+lead);s[lead]=value('ecg_dx_s_'+lead);}for(const lead of R.extraLeads)st[lead]=value('ecg_dx_st_'+lead);return {age:value('age'),sex:value('sex'),qrs:value('ecg_qrs'),gain:value('ecg_gain'),quality:value('ecg_quality'),type:value('ecg_type'),reference:value('ecg_st_reference'),standardContext:value('ecg_st_context'),conduction:value('ecg_dx_conduction'),lvh:value('ecg_dx_lvh'),symptoms:value('ecg_dx_symptoms'),stability:value('ecg_dx_stability'),shape:value('ecg_dx_shape'),pacedLike:value('ecg_dx_paced_like'),newness:value('ecg_st_new').startsWith('Nowe')?'new':value('ecg_st_new')==='Obecne już wcześniej'?'old':'',declaredLBBB:!!$('ecg_block_lbbb')?.checked,declaredRBBB:!!$('ecg_block_rbbb')?.checked,declaredPaced:value('ecg_rhythm')==='Rytm ze stymulatora',morph:{rsr:value('ecg_dx_rsr'),wideS:value('ecg_dx_wide_s'),broadR:value('ecg_dx_broad_r'),noQ:value('ecg_dx_no_q'),rpeak:value('ecg_dx_rpeak')},st,sign,s};}
+ function render(){const r=R.analyze(read());results.replaceChildren();status.textContent=r.status==='urgent'?'Są przesłanki do pilnej oceny.':r.status==='incomplete'?'Ocena niepełna — zobacz brakujące dane.':'Wynik do przeglądu klinicznego.';status.dataset.level=r.status;
+  for(const message of r.errors)results.append(el('p','pro-error',message));
+  for(const f of r.findings){const card=el('article','ecg-dx-finding'+(f.urgent?' urgent':''));card.append(el('h4','',f.title),el('p','','Co wspiera: '+f.evidence.join(' ')),el('p','','Dalej: '+f.next.join(' ')));const a=el('a','','Źródło tej reguły');a.href=f.source;a.target='_blank';a.rel='noopener';card.append(a);results.append(card);}
+  if(r.ratios.length){const ratios=el('ul','ecg-dx-ratios');for(const v of r.ratios)ratios.append(el('li','',v.lead+': ST/|S| = '+v.ratio.toFixed(3)+' (ST/S = '+v.signed.toFixed(3)+')'+(v.hit?' — próg osiągnięty':'')));results.append(ratios);}
+  if(r.missing.length){const detail=el('details');detail.open=!r.findings.length;detail.append(el('summary','','Do uzupełnienia: '+r.missing.length));const list=el('ul');for(const m of r.missing)list.append(el('li','',m));detail.append(list);results.append(detail);}
+  for(const note of r.notes)results.append(el('p','v2-note',note));
+ }
+ window.triageECGDifferential={read,render};
+ parseButton.onclick=()=>{if(!canEdit())return;const parsed=R.parse(freeText.value),d=P.ui.dialog('Sprawdź propozycje pomiarów z tekstu'),choices=[];for(const [id,v] of Object.entries(parsed.proposals)){const n=$(id);if(!n)continue;const label=el('label','pro-check'),check=el('input');check.type='checkbox';label.append(check,document.createTextNode(id.replace('ecg_st_mm_','ST ').replace('ecg_dx_st_','ST ').replace('ecg_','').toUpperCase()+': '+(n.value||'brak')+' → '+v));d.body.append(label);choices.push({check,n,v});}if(parsed.unrecognized.length)d.body.append(el('p','','Nie przeniesiono / nie rozpoznano: '+parsed.unrecognized.join('; ')));if(parsed.conflicts.length)d.body.append(el('p','pro-error','Sprzeczne wartości — pominięto pola: '+parsed.conflicts.join(', ')));if(!choices.length)d.body.append(el('p','','Brak jednoznacznych pomiarów do przeniesienia.'));d.actions.append(P.ui.button('Anuluj',()=>d.node.close()),P.ui.button('Przenieś zaznaczone pomiary',()=>{if(!canEdit())return;for(const {check,n,v} of choices)if(check.checked){n.value=v;n.dispatchEvent(new Event('input',{bubbles:true}));}render();d.node.close();},'pro-button primary'));d.open();};
+ ecg.addEventListener('input',render);ecg.addEventListener('change',render);$('age').addEventListener('input',render);$('sex').addEventListener('change',render);P.on('record-restored',render);P.on('record-changed',render);
+ const clear=clearForm;clearForm=function(...args){const result=clear(...args);box.querySelectorAll('input[id],select[id],textarea[id]').forEach(n=>n.value='');render();return result;};
+ render();
 });
 
 </script>
