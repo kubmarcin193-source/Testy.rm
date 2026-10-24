@@ -1,5 +1,5 @@
 {
-  "appVersion": "3.0.2",
+  "appVersion": "3.0.3",
   "fileCount": 71,
   "maxUploadFileBytes": 26214400,
   "files": [
@@ -10,8 +10,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2052,
-      "sha256": "255a21da86978f07e8802ebc7460b95cf1b8044941aeb63802f426dd585adc8a"
+      "bytes": 2235,
+      "sha256": "8dc8b1790233546739080dbe695ffe1a117f2005e4d71053f717f8a6f2912b9f"
     },
     {
       "path": "TRIAGE wersja 2.html",
@@ -20,8 +20,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 2001495,
-      "sha256": "00cb482d8289bddbc7a8e03453cf932a260a35b85076532aa2a8906042f04804"
+      "bytes": 4466008,
+      "sha256": "eb2fc0c9d5161cc0a94b1dcfa6e6fb69a8e4e918ca53902f1ca156b90d343280"
     },
     {
       "path": "materialy-erc-2025/10_-_Tachyarrhythmia_A_ENG_V2.0.pdf",

@@ -1,4 +1,4 @@
-# RatMed TRIAGE PRO — testy 3.0.2
+# RatMed TRIAGE PRO — testy 3.0.3
 
 Gotowa aplikacja: **index.html**. Działa lokalnie lub na GitHub Pages, bez procesu budowania. Kod, style, biblioteki i przykładowe wywiady są wbudowane w HTML. Folder `materialy-erc-2025` zawiera 66 oryginalnych dokumentów PDF. Zachowano też poprzednią wersję aplikacji.
 
@@ -11,7 +11,7 @@ Gotowa aplikacja: **index.html**. Działa lokalnie lub na GitHub Pages, bez proc
 
 ## Co testować
 
-Zakładki, parametry (GCS i liczba oddechów), kolejne leki i działania, zapis/odczyt historii, wydruk PDF i Ctrl+P, EKG, kalkulatory, test wiedzy oraz boczny panel na telefonie. SBAR usunięto. Wersja aplikacji: 3.0.2.
+Zapis po „Dalej”, scalanie całej karty i ochrona ręcznych poprawek; parametry przy przyjęciu oraz osobne pomiary kontrolne; dwuczęściowy wydruk A4; uporządkowany opis EKG; 23 zagadnienia o blokach i sześć rzeczywistych zdjęć EKG offline z podpisami, źródłami i licencjami; kolejne leki i działania, historia, kalkulatory, test wiedzy i telefon. SBAR usunięto. Wersja aplikacji: 3.0.3.
 
 Dane wpisywane podczas pracy są w pamięci przeglądarki; ta paczka nie zawiera jej eksportów ani zapisów pacjentów. Lokalny plik i adres GitHub Pages mają osobne magazyny — dane przenosi się eksportem/importem. Do testów używaj danych fikcyjnych.
 
