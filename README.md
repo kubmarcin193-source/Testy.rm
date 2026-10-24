@@ -1,4 +1,4 @@
-# RatMed TRIAGE PRO — testy 3.0.5
+# RatMed SMART — testy 3.1.0
 
 Gotowa aplikacja: **index.html**. Działa lokalnie lub na GitHub Pages, bez procesu budowania. Kod, style, biblioteki i przykładowe wywiady są wbudowane w HTML. Folder `materialy-erc-2025` zawiera 66 oryginalnych dokumentów PDF. Zachowano też poprzednią wersję aplikacji.
 
@@ -11,7 +11,9 @@ Gotowa aplikacja: **index.html**. Działa lokalnie lub na GitHub Pages, bez proc
 
 ## Co testować
 
-Jednorazowe wpisywanie EKG, opis automatyczny z ochroną ręcznych poprawek, wspólna tabela ST/QRS, zdjęcia LBBB/RBBB obok oceny, zatwierdzanie podpowiedzi bloków, powrót „Kontrola / dopisz”, kolejne pomiary i oddzielne rozpoznania opisującego / lekarza; zapis po „Dalej”, scalanie całej karty i ochrona ręcznych poprawek; parametry przy przyjęciu oraz osobne pomiary kontrolne; dwuczęściowy wydruk A4; uporządkowany opis EKG; panel możliwych rozpoznań EKG z uzasadnieniem i dodatkowymi odprowadzeniami, widoczny wyłącznie dla opisującego (bez drukowania hipotez); 23 zagadnienia o blokach i siedem rzeczywistych zdjęć EKG offline z podpisami, źródłami i licencjami; kolejne leki i działania, historia, kalkulatory, test wiedzy i telefon. SBAR usunięto. Wersja aplikacji: 3.0.5.
+RatMed SMART domyślnie prowadzi przez sześć kroków. EKG wymaga tylko ocenionych, najważniejszych informacji; szczegółowe pomiary są opcjonalne. Pełny układ pozostaje dostępny w Ustawieniach. Puste pola nie oznaczają prawidłowego wyniku.
+
+Jednorazowe wpisywanie EKG, opis automatyczny z ochroną ręcznych poprawek, wspólna tabela ST/QRS, zdjęcia LBBB/RBBB obok oceny, zatwierdzanie podpowiedzi bloków, powrót „Kontrola / dopisz”, kolejne pomiary i oddzielne rozpoznania opisującego / lekarza; zapis po „Dalej”, scalanie całej karty i ochrona ręcznych poprawek; parametry przy przyjęciu oraz osobne pomiary kontrolne; dwuczęściowy wydruk A4; uporządkowany opis EKG; panel możliwych rozpoznań EKG z uzasadnieniem i dodatkowymi odprowadzeniami, widoczny wyłącznie dla opisującego (bez drukowania hipotez); 23 zagadnienia o blokach i siedem rzeczywistych zdjęć EKG offline z podpisami, źródłami i licencjami; kolejne leki i działania, historia, kalkulatory, test wiedzy i telefon. SBAR usunięto. Wersja aplikacji: 3.1.0.
 
 Dane wpisywane podczas pracy są w pamięci przeglądarki; ta paczka nie zawiera jej eksportów ani zapisów pacjentów. Lokalny plik i adres GitHub Pages mają osobne magazyny — dane przenosi się eksportem/importem. Do testów używaj danych fikcyjnych.
 

@@ -1,5 +1,6 @@
 {
-  "appVersion": "3.0.5",
+  "appName": "RatMed SMART",
+  "appVersion": "3.1.0",
   "fileCount": 71,
   "maxUploadFileBytes": 26214400,
   "files": [
@@ -10,8 +11,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 2641,
-      "sha256": "2db5d5e2027bbef2b2edcc6ee81957b85383f4333c76a027ed855924af58a262"
+      "bytes": 2887,
+      "sha256": "c279eeba4a97c8c78ca5c42296c8a80424c421df6bd24328de856f12b07b6e19"
     },
     {
       "path": "TRIAGE wersja 2.html",
@@ -20,8 +21,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5740751,
-      "sha256": "a2aa117af93886baa27dce09ef28bc7a87ca50e0cbafbb987b40bcb9b9c0ef58"
+      "bytes": 5762817,
+      "sha256": "5aacb7d87c007ca502059bf69ae6cd5af841b55389946afb29e693ac1ff4a9f7"
     },
     {
       "path": "materialy-erc-2025/10_-_Tachyarrhythmia_A_ENG_V2.0.pdf",

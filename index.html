@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>RatMed TRIAGE PRO</title>
+  <title>RatMed SMART</title>
   <style>
 
     :root{
@@ -1504,10 +1504,19 @@ body.dark-mode .pro-warning,body.dark-mode .pro-validation-item.warning,body.dar
 #ecg_av_pattern{width:100%;min-width:0;max-width:100%}#ecg-av-observations{min-width:0}#ecg-approve-block button{max-width:100%;white-space:normal}
 
 </style>
+<style>
+/* RatMed SMART — compact navigation and optional detailed forms. */
+.simple-steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;position:sticky;top:var(--pro-patient-height);z-index:55;background:var(--bg);padding:10px 0;margin:0 0 14px}.simple-steps[hidden]{display:none!important}.simple-step{border:1px solid var(--line);border-radius:11px;padding:12px 8px;background:var(--card);color:var(--text);font:700 13px var(--sans);min-height:46px;cursor:pointer}.simple-step[aria-selected=true]{background:#145c63;color:#fff;border-color:#145c63}.simple-step:focus-visible{outline:3px solid #4e9bca;outline-offset:2px}.simple-route{scroll-margin-top:calc(var(--pro-patient-height) + 100px)}.smart-quick-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;flex:1;min-width:360px}.smart-quick-actions button{min-height:40px}.smart-save-hint{flex-basis:100%;font-size:11px;color:var(--muted);margin:0}.smart-disclosure,.smart-more,.smart-ecg-advanced,.smart-ecg-analysis{border:1px solid var(--line);border-radius:12px;margin:12px 0;background:var(--card);padding:12px}.smart-disclosure>summary,.smart-more>summary,.smart-ecg-advanced>summary,.smart-ecg-analysis>summary{font:700 14px/1.5 var(--sans);cursor:pointer;list-style-position:inside;min-height:30px}.smart-section-badge,.smart-analysis-badge{font-size:11px;font-weight:400;color:var(--muted)}.smart-analysis-badge[data-level=urgent],.smart-analysis-badge[data-level=error]{color:#a23f29;font-weight:700}.smart-ecg-basic,.smart-ecg-description{padding:16px;border:1px solid var(--line);border-radius:12px;margin:14px 0;background:var(--card)}.smart-ecg-basic h3,.smart-ecg-description h3{margin:0 0 10px;font-size:17px}.smart-hint{font-size:13px;line-height:1.5;color:var(--muted)}.smart-ecg-shortcuts,.smart-care-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.smart-care-actions>p{flex-basis:100%;margin:0}.smart-general-interview label{display:block;font-weight:700;margin:12px 0 6px}.smart-hx-basic{margin:14px 0}.smart-ecg-description>div{width:100%}.smart-ecg-description textarea{min-height:150px}.smart-disclosure>.sheet{border:none;box-shadow:none;margin:12px 0 0;padding:0}
+.smart-layout .triage-tabs[hidden]{display:none!important}.smart-layout .wrap>.v2-tools,.smart-layout .smart-duplicate,.smart-layout .smart-legacy-dock-actions,.smart-layout .v2-overview{display:none!important}.smart-layout #btn_save,.smart-layout #btn_pdf,.smart-layout #btn_clear{display:none!important}.smart-layout .pro-patient-dock{gap:8px;padding:10px 12px;margin-top:10px}.smart-layout .pro-patient-info{min-width:180px;max-width:32%}.smart-layout .pro-save-column{margin-right:0;min-width:130px}.smart-layout .pro-patient-info small{font-size:10px}.smart-layout .pro-save-column small{font-size:10px}.smart-layout .pro-form-grid textarea{min-height:100px}.smart-layout .chief-grid{grid-template-columns:1fr}.smart-layout #interview_general{display:block!important;width:100%;min-height:130px}.smart-layout .req-missing,.smart-layout #chief.chief-empty{border:1px solid var(--line)!important;box-shadow:none!important;animation:none!important;background:var(--card);color:var(--text)}.smart-layout .req-label-missing{color:var(--text)!important;font-weight:inherit!important}.smart-layout label[for=chief].chief-empty::after{content:none}.smart-layout .pro-summary-hint{font-size:12px}.smart-layout .triage-stepbar{margin-top:16px}.smart-layout #ecg_generated{display:none!important}.smart-layout .simple-route .triage-panel{scroll-margin-top:calc(var(--pro-patient-height) + 100px)}.smart-layout .smart-ecg-analysis .ecg-differential{padding:0;border:0}.smart-layout .smart-more .clinical-span{grid-column:1/-1}.smart-layout #smart-save-print{background:#145c63;color:#fff;border-color:#145c63;min-height:46px}
+body:not(.smart-layout) .smart-quick-actions,body:not(.smart-layout) .smart-save-hint,body:not(.smart-layout) .smart-only,body:not(.smart-layout) .smart-ecg-basic,body:not(.smart-layout) .smart-ecg-description,body:not(.smart-layout) .smart-ecg-analysis,body:not(.smart-layout) .smart-ecg-advanced,body:not(.smart-layout) .smart-hx-basic,body:not(.smart-layout) .smart-general-interview,body:not(.smart-layout) .smart-more:not(.smart-settings),body:not(.smart-layout) #smart-save-print{display:none!important}body:not(.smart-layout) .smart-disclosure{padding:0;margin:0;border:none;background:none}body:not(.smart-layout) .smart-disclosure>summary{display:none}
+@media(max-width:850px){.smart-layout .pro-patient-info{max-width:60%;min-width:0;flex:1}.smart-layout .pro-save-column{min-width:110px;flex:none}.smart-quick-actions{min-width:0;flex-basis:100%;width:100%}.simple-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:7px 0}.simple-step{min-height:39px;font-size:12px;padding:8px 4px}.smart-layout .pro-patient-dock{position:relative;top:auto}.simple-steps{top:0}.smart-quick-actions button{font-size:11px;padding:8px 4px}.smart-save-hint{font-size:10px}.smart-layout .simple-route .triage-panel{scroll-margin-top:100px}.smart-layout .pro-patient-dock{margin-bottom:0}.smart-ecg-basic,.smart-ecg-description{padding:12px}.smart-disclosure,.smart-more,.smart-ecg-advanced,.smart-ecg-analysis{padding:10px}.smart-layout .clinical-grid{grid-template-columns:1fr}.smart-layout .smart-save-hint{line-height:1.4}}
+@media print{.simple-steps,.smart-quick-actions,.smart-save-hint,.smart-ecg-shortcuts,.smart-care-actions{display:none!important}}
+
+</style>
 <script>
 /* RatMed PRO: stałe wydania. Baza wiedzy ma własny numer wersji. */
 window.TriagePro={
- config:Object.freeze({appVersion:'3.0.5',schemaVersion:3,databaseName:'ratmed-triage-pro',databaseVersion:1,maxImportBytes:50*1024*1024,maxPackBytes:5*1024*1024,recoveryLimit:8,autoRecoveryMinutes:10}),
+ config:Object.freeze({appVersion:'3.1.0',appName:'RatMed SMART',schemaVersion:3,databaseName:'ratmed-triage-pro',databaseVersion:1,maxImportBytes:50*1024*1024,maxPackBytes:5*1024*1024,recoveryLimit:8,autoRecoveryMinutes:10}),
  state:{ready:false,dirty:false,saving:false,saveError:'',current:null,records:[],lastSavedAt:null,mode:'work',restoring:false},
  events:new EventTarget(),
  on(name,handler){this.events.addEventListener(name,event=>handler(event.detail));},
@@ -12154,6 +12163,17 @@ document.addEventListener('DOMContentLoaded', () => {
     ['settings','Ustawienia','.section-settings']
   ];
   const mainLastIndex=definitions.findIndex(d=>d[0]==='history');
+  const groups=[
+    ['intake','Pacjent',['patient','vitals']],
+    ['interview','Wywiad',['reason','symptoms','history-medical','psych']],
+    ['exam','Badanie',['exam']],['ecg','EKG',['ecg']],
+    ['care','Leczenie i kontrola',['treatment','followup','timeline']],
+    ['summary','Karta',['summary']]
+  ];
+  let simple=localStorage.getItem('triage_pro_layout')!=='full';
+  const groupOf=index=>groups.findIndex(g=>g[2].includes(definitions[index]?.[0]));
+  const firstIndex=g=>definitions.findIndex(d=>d[0]===groups[g][2][0]);
+
   const sections = definitions.map(d => {if(!d[2])return null;let section=document.querySelector(d[2]);if(!section){section=document.createElement('div');section.className='sheet '+d[2].slice(1);}return section;});
   const hxButton = document.querySelector('[data-acc="hxmeds"]');
   const hxPanel = document.querySelector('[data-panel="hxmeds"]');
@@ -12213,6 +12233,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if(target!==undefined){event.preventDefault();activate(target);if(!smallScreen()||!auxiliary)buttons[target].focus();}
     });
   });
+  const groupTabs=document.createElement('div');groupTabs.className='simple-steps';groupTabs.setAttribute('role','tablist');groupTabs.setAttribute('aria-label','Główne kroki pracy');
+  const groupNodes=[],groupButtons=[];
+  groups.forEach(([key,label,members],i)=>{
+    const button=document.createElement('button');button.type='button';button.className='simple-step';button.id='simple-tab-'+key;button.setAttribute('role','tab');button.setAttribute('aria-controls','simple-route-'+key);button.textContent=(i+1)+'. '+label;button.onclick=()=>activate(firstIndex(i));
+    button.onkeydown=event=>{let target;if(event.key==='ArrowRight')target=(i+1)%groups.length;if(event.key==='ArrowLeft')target=(i+groups.length-1)%groups.length;if(event.key==='Home')target=0;if(event.key==='End')target=groups.length-1;if(target!==undefined){event.preventDefault();activate(firstIndex(target));groupButtons[target].focus();}};
+    const route=document.createElement('div');route.id='simple-route-'+key;route.className='simple-route';route.setAttribute('aria-labelledby',button.id);for(const member of members)route.append(panels[definitions.findIndex(d=>d[0]===member)]);content.append(route);groupNodes.push(route);groupButtons.push(button);groupTabs.append(button);
+  });
   panels[3].append(combo);
   panels[definitions.findIndex(d=>d[0]==='summary')].append(actions);
   // Główne formularze są od razu rozwinięte w swoich zakładkach.
@@ -12228,7 +12255,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const progress=document.createElement('span');progress.className='triage-progress';progress.setAttribute('aria-live','polite');
   const next=document.createElement('button');next.type='button';next.className='triage-step next';
   footer.append(previous,progress,next);
-  grid.before(tabs,content,footer);
+  grid.before(groupTabs,tabs,content,footer);
   // Zachowujemy stare kontenery, jeżeli zawierają dodatkowe elementy.
   grid.hidden=true;
   let current=0,lastPatientTab=0;
@@ -12236,28 +12263,33 @@ document.addEventListener('DOMContentLoaded', () => {
   function activate(index,scroll=true){
     current=index;
     if(index<=mainLastIndex)lastPatientTab=index;
-    const auxiliary=index>mainLastIndex;
+    const auxiliary=index>mainLastIndex,group=groupOf(index);
+    tabs.hidden=simple;groupTabs.hidden=!simple;document.body.classList.toggle('simple-layout',simple);
+    groupNodes.forEach((node,i)=>{node.hidden=simple&&i!==group;node.setAttribute('role',simple?'tabpanel':'presentation');groupButtons[i].setAttribute('aria-selected',String(i===group));groupButtons[i].tabIndex=i===(group<0?0:group)?0:-1;});
     const closeDrawer=smallScreen()&&sidebar.classList.contains('is-open');
     panels.forEach((panel,i)=>{
-      panel.hidden=i!==index;
+      panel.hidden=simple&&group>=0?!groups[group][2].includes(definitions[i][0]):i!==index;
+      if(i<mainLastIndex)panel.setAttribute('role',simple?'region':'tabpanel');
       if(i<=mainLastIndex){buttons[i].setAttribute('aria-selected',String(i===index));buttons[i].tabIndex=(i===(auxiliary?lastPatientTab:index))?0:-1;}
       else{buttons[i].setAttribute('aria-pressed',String(i===index));buttons[i].tabIndex=0;}
     });
-    footer.hidden=auxiliary;
+    footer.hidden=auxiliary||simple&&group<0;
     backToPatient.hidden=!auxiliary;
     if(closeDrawer)setMenu(false);
     if(closeDrawer){panels[index].tabIndex=-1;panels[index].focus({preventScroll:true});}
-    previous.disabled=index===0;
-    next.disabled=index>=mainLastIndex;
-    next.textContent=index<mainLastIndex?'Dalej: '+definitions[index+1][1]+' →':'Koniec formularza';
-    progress.textContent=index>=mainLastIndex?definitions[index][1]:(index+1)+' z '+mainLastIndex+' · '+definitions[index][1];
+    previous.disabled=simple?group<=0:index===0;
+    next.disabled=simple?group<0||group===groups.length-1:index>=mainLastIndex;
+    next.textContent=simple?(group>=0&&group<groups.length-1?'Zapisz i dalej: '+groups[group+1][1]+' →':'Gotowa karta'):(index<mainLastIndex?'Dalej: '+definitions[index+1][1]+' →':'Koniec formularza');
+    progress.textContent=simple?(group>=0?(group+1)+' z '+groups.length+' · '+groups[group][1]:definitions[index][1]):(index>=mainLastIndex?definitions[index][1]:(index+1)+' z '+mainLastIndex+' · '+definitions[index][1]);
+    window.TriagePro?.simple?.revealPanel(definitions[index][0],{explicit:index!==(group>=0?firstIndex(group):-1)});
+    window.TriagePro?.emit('navigation-changed',{key:definitions[index][0],group:group>=0?groups[group][0]:null,simple});
     if(definitions[index][0]==='summary' && typeof updateSummary==='function') updateSummary();
     requestAnimationFrame(()=>{
       panels[index].querySelectorAll('textarea').forEach(el=>{if(typeof autoResizeTextarea==='function') autoResizeTextarea(el);});
-      if(scroll){tabs.scrollIntoView({block:'start',behavior:'auto'});if(!auxiliary)buttons[index].scrollIntoView({block:'nearest',inline:'nearest'});}
+      if(scroll){const target=simple&&group>=0&&index!==firstIndex(group)?panels[index]:simple?groupTabs:tabs;target.scrollIntoView({block:'start',behavior:'auto'});if(!simple&&!auxiliary)buttons[index].scrollIntoView({block:'nearest',inline:'nearest'});}
     });
   }
-  previous.addEventListener('click',()=>activate(current-1));
+  previous.addEventListener('click',()=>activate(simple?firstIndex(Math.max(0,groupOf(current)-1)):current-1));
   next.addEventListener('click',async()=>{
     const source=current;next.disabled=true;
     try{
@@ -12265,12 +12297,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if(!pro?.state.ready)throw Error('Aplikacja nie jest jeszcze gotowa do zapisu.');
       pro.touch('next-step');
       if(!await pro.flush())throw Error('Nie zapisano szkicu.');
-      if(current===source)activate(source+1);
+      if(current===source)activate(simple?firstIndex(groupOf(source)+1):source+1);
     }catch(error){window.TriagePro?.ui.notify('Nie przełączono zakładki: '+error.message,true);}
-    finally{next.disabled=current>=mainLastIndex;}
+    finally{next.disabled=simple?groupOf(current)<0||groupOf(current)===groups.length-1:current>=mainLastIndex;}
   });
   content.addEventListener('focusin',event=>{if(event.target.closest('#triage-panel-learn,#triage-panel-settings,#triage-panel-rko'))return;if(typeof setStartIfNeeded==='function')setStartIfNeeded();});
   document.getElementById('history').addEventListener('click',event=>{if(event.target.closest('[data-act="load"]'))activate(0);});
+  window.TriagePro.navigation={go(key){const index=definitions.findIndex(d=>d[0]===key);if(index>=0)activate(index);},setLayout(layout){simple=layout!=='full';localStorage.setItem('triage_pro_layout',simple?'simple':'full');activate(current,false);window.TriagePro.simple?.applyLayout();},isSimple:()=>simple,current:()=>definitions[current][0]};
   activate(0,false);
 });
 
@@ -12970,15 +13003,15 @@ window.RATMED_REFERENCE={"source":"Archiwum RatMed — treści przeniesione bez 
   if(P.state.current?.meta?.manualFieldsFingerprint&&SUMMARY_LOCKED&&P.inputSignature&&P.state.current.meta.manualFieldsFingerprint!==P.inputSignature())add('warning','summary','summary','Ręczny opis może nie uwzględniać ostatnich zmian formularza. Porównaj treści lub potwierdź przegląd.');
   return list;
  }
- function go(tab,id){document.getElementById('triage-tab-'+tab)?.click();requestAnimationFrame(()=>{const field=document.getElementById(id);if(field&&!field.disabled){field.focus({preventScroll:true});field.scrollIntoView({block:'center'});}});}
- function update(){if(!P.state.current||!dock)return;const name=value('name')||'Pacjent bez nazwiska',age=value('age'),sex=value('sex');document.getElementById('pro-current-patient').textContent=name+(age?' · '+age+' lat':'')+(sex?' · '+sex:'');document.getElementById('pro-contact-id').textContent='Kontakt '+P.state.current.id.slice(-8)+' · '+P.ui.formatDate(P.state.current.createdAt);const warnings=issues(),critical=warnings.filter(i=>i.level==='error').length;document.getElementById('pro-validation-toggle').textContent=critical?'Błędy: '+critical:'Do sprawdzenia: '+warnings.length;document.getElementById('pro-validation-toggle').classList.toggle('danger',critical>0);validationBox.replaceChildren();validationBox.append(P.ui.el('h3','','Spójność i kompletność wpisów'));if(!warnings.length)validationBox.append(P.ui.el('p','','Nie znaleziono sprzeczności objętych kontrolą techniczną. To nie jest ocena prawidłowości klinicznej.'));for(const issue of warnings){const row=P.ui.el('div','pro-validation-item '+issue.level);row.append(P.ui.el('span','',issue.message),P.ui.button('Przejdź',()=>go(issue.tab,issue.id),'pro-small'));validationBox.append(row);}P.timeline.render();}
+ function go(tab,id){document.getElementById('triage-tab-'+tab)?.click();requestAnimationFrame(()=>{const field=document.getElementById(id);if(field&&!field.disabled){P.simple?.revealField(field);field.focus({preventScroll:true});field.scrollIntoView({block:'center'});}});}
+ function update(){if(!P.state.current||!dock)return;const name=value('name')||'Pacjent bez nazwiska',age=value('age'),sex=value('sex');document.getElementById('pro-current-patient').textContent=name+(age?' · '+age+' lat':'')+(sex?' · '+sex:'');document.getElementById('pro-contact-id').textContent='Kontakt '+P.state.current.id.slice(-8)+' · '+P.ui.formatDate(P.state.current.createdAt);const warnings=issues().filter(i=>i.level!=='note'||!P.navigation?.isSimple()),critical=warnings.filter(i=>i.level==='error').length;document.getElementById('pro-validation-toggle').textContent=critical?'Błędy: '+critical:'Do sprawdzenia: '+warnings.length;document.getElementById('pro-validation-toggle').classList.toggle('danger',critical>0);validationBox.replaceChildren();validationBox.append(P.ui.el('h3','','Spójność i kompletność wpisów'));if(!warnings.length)validationBox.append(P.ui.el('p','','Nie znaleziono sprzeczności objętych kontrolą techniczną. To nie jest ocena prawidłowości klinicznej.'));for(const issue of warnings){const row=P.ui.el('div','pro-validation-item '+issue.level);row.append(P.ui.el('span','',issue.message),P.ui.button('Przejdź',()=>go(issue.tab,issue.id),'pro-small'));validationBox.append(row);}P.timeline.render();}
  function showIssues(){document.getElementById('triage-tab-summary').click();validationBox.hidden=false;validationBox.scrollIntoView({block:'center'});}
  function canUse(){const errors=issues().filter(i=>i.level==='error'&&!i.message.startsWith('Zapis bazy'));if(!errors.length)return true;showIssues();P.ui.notify('Popraw sprzeczne lub nieprawidłowe wpisy przed użyciem dokumentacji.',true);return false;}
  function setMode(mode){P.state.mode=mode==='study'?'study':'work';localStorage.setItem('triage_pro_work_mode',P.state.mode);document.body.classList.toggle('pro-mode-work',P.state.mode==='work');document.body.classList.toggle('pro-mode-study',P.state.mode==='study');for(const [key,id] of [['work','pro-mode-work'],['study','pro-mode-study']])document.getElementById(id)?.setAttribute('aria-pressed',String(P.state.mode===key));}
- function mount(){const {el,button}=P.ui,tabs=document.querySelector('.triage-tabs');dock=el('section','pro-patient-dock');dock.id='pro-patient-dock';const info=el('div','pro-patient-info');const patient=el('strong');patient.id='pro-current-patient';const contact=el('small');contact.id='pro-contact-id';info.append(patient,contact);const status=el('div','pro-save-column');const save=el('span','','Uruchamianie bazy…');save.id='pro-save-status';save.setAttribute('role','status');const version=el('small','', 'PRO '+P.config.appVersion+' · '+P.activePack.version);status.append(save,version);const actions=el('div','pro-dock-actions');const work=button('Praca',()=>setMode('work'),'pro-small'),study=button('Nauka',()=>setMode('study'),'pro-small');work.id='pro-mode-work';study.id='pro-mode-study';const review=button('Do sprawdzenia',showIssues,'pro-small');review.id='pro-validation-toggle';actions.append(work,study,review);dock.append(info,status,actions);tabs.before(dock);new ResizeObserver(()=>document.documentElement.style.setProperty('--pro-patient-height',dock.getBoundingClientRect().height+'px')).observe(dock);
+ function mount(){const {el,button}=P.ui,tabs=document.querySelector('.triage-tabs');dock=el('section','pro-patient-dock');dock.id='pro-patient-dock';const info=el('div','pro-patient-info');const patient=el('strong');patient.id='pro-current-patient';const contact=el('small');contact.id='pro-contact-id';info.append(patient,contact);const status=el('div','pro-save-column');const save=el('span','','Uruchamianie bazy…');save.id='pro-save-status';save.setAttribute('role','status');const version=el('small','', (P.config.appName||'PRO')+' '+P.config.appVersion);status.append(save,version);const actions=el('div','pro-dock-actions');const work=button('Praca',()=>setMode('work'),'pro-small'),study=button('Nauka',()=>setMode('study'),'pro-small');work.id='pro-mode-work';study.id='pro-mode-study';const review=button('Do sprawdzenia',showIssues,'pro-small');review.id='pro-validation-toggle';actions.append(work,study,review);dock.append(info,status,actions);(document.querySelector('.simple-steps')||tabs).before(dock);new ResizeObserver(()=>document.documentElement.style.setProperty('--pro-patient-height',dock.getBoundingClientRect().height+'px')).observe(dock);
   validationBox=el('section','pro-validation');validationBox.id='pro-validation';document.getElementById('triage-panel-summary').prepend(validationBox);const hint=el('div','pro-summary-hint');hint.innerHTML='<strong>Opis automatyczny i ręczne poprawki</strong><p>Po ręcznej zmianie opisu zachowujemy Twoją treść. Przycisk „Generuj kartę — scal wszystkie informacje” zbiera dane wszystkich zakładek. Jeśli opis poprawiono ręcznie, otwiera obie wersje do przejrzenia. Przenieś swoje poprawki do wersji z pól przed jej zastosowaniem albo zachowaj obecny opis.</p>';hint.append(button('Sprawdziłem aktualność ręcznego opisu',()=>{if(P.state.current){P.state.current.meta.manualFieldsFingerprint=P.inputSignature();P.touch('manual-reviewed');update();}},'pro-small'));document.querySelector('.section-summary').prepend(hint);
   const pref=el('section','setting-box');pref.append(el('h3','','Tryb pracy i nauki'),el('p','pro-note','Tryb pracy zwija ilustracje i pomocnicze objaśnienia. Wyniki analizy, sprzeczności, źródła i ostrzeżenia pozostają widoczne. Tryb nauki zachowuje pełne pomoce.'),button('Włącz tryb pracy',()=>setMode('work')),button('Włącz tryb nauki',()=>setMode('study')));document.querySelector('#triage-panel-settings .settings-grid').append(pref);
-  const h1=document.querySelector('.topbar h1');if(h1)h1.textContent='RatMed TRIAGE PRO';setMode(localStorage.getItem('triage_pro_work_mode')||'work');P.on('record-changed',update);P.on('record-restored',update);P.on('save-status',()=>{if(P.state.ready)update();});
+  const h1=document.querySelector('.topbar h1');if(h1)h1.textContent=P.config.appName||'RatMed TRIAGE PRO';setMode(localStorage.getItem('triage_pro_work_mode')||'work');P.on('record-changed',update);P.on('record-restored',update);P.on('save-status',()=>{if(P.state.ready)update();});
  }
  P.workspace={mount,update,issues,canUse,showIssues,setMode};
 })();
@@ -13311,7 +13344,7 @@ document.addEventListener('DOMContentLoaded',()=>{
  const prior=node('p','v2-note');assessment.append(prior);
  const lvh=$('ecg_dx_lvh'),context=$('ecg_st_context');context.parentElement.before(lvh.parentElement);context.parentElement.hidden=true;
  const stabilityLabel=ecg.querySelector('label[for="ecg_dx_stability"]');stabilityLabel.textContent='Stan kliniczny w chwili EKG / aktualnej oceny';
- function openMeasurements(focus=false){shared.closest('.ecg-step').open=true;shared.open=true;if(focus){shared.scrollIntoView({block:'start'});const first=R.leads.find(l=>!$('ecg_st_mm_'+l).value||!signValue(l))||'I';$('ecg_st_mm_'+first).focus({preventScroll:true});}}
+ function openMeasurements(focus=false){P.simple?.revealField(shared);shared.closest('.ecg-step').open=true;shared.open=true;if(focus){shared.scrollIntoView({block:'start'});const first=R.leads.find(l=>!$('ecg_st_mm_'+l).value||!signValue(l))||'I';$('ecg_st_mm_'+first).focus({preventScroll:true});}}
  function signValue(lead){return aliases[lead]?$(aliases[lead]).value:$('ecg_dx_sign_'+lead).value;}
  function synchronize({restore=false,force=false}={}){
   if(syncing||P.state.restoring&&!force)return;syncing=true;
@@ -13374,22 +13407,92 @@ document.addEventListener('DOMContentLoaded',()=>{
  const grid=el('div','pro-form-grid');
  function field(id,label,type='textarea'){const box=el('div'),lab=el('label','',label),n=el(type==='textarea'?'textarea':'input');n.id=id;lab.htmlFor=id;if(type!=='textarea')n.type=type;box.append(lab,n);grid.append(box);return n;}
  const own=field('followup_own','Twoje rozpoznanie / ocena — wpis ręczny'),doctor=field('followup_doctor','Rozpoznanie / opinia przekazana przez lekarza — wpis ręczny'),name=field('followup_doctor_name','Lekarz / źródło przekazanej opinii','text'),time=field('followup_time','Data i godzina oceny — puste = teraz','datetime-local'),note=field('followup_note','Dopisek, przebieg lub powód kontroli');target.append(grid,el('p','pro-note','Podpowiedzi programu nie są tu przepisywane automatycznie. Zapisujemy to, co wpiszesz, z datą i rozróżnieniem autora oceny.'));
- const save=button('Zapisz rozpoznania / dopisek do kontaktu',async()=>{
-  if(!editable())return;const parts=[];if(own.value.trim())parts.push('Rozpoznanie / ocena opisującego: '+own.value.trim());if(doctor.value.trim())parts.push('Rozpoznanie / opinia lekarza'+(name.value.trim()?' ('+name.value.trim()+')':' — lekarz niepodany')+': '+doctor.value.trim());else if(name.value.trim())parts.push('Konsultowano z: '+name.value.trim());if(note.value.trim())parts.push('Dopisek: '+note.value.trim());if(!parts.length){P.ui.notify('Wpisz ocenę lub dopisek.',true);return;}
+ let pendingSave=null;
+ function savePending(){if(pendingSave)return pendingSave;pendingSave=performSave().finally(()=>{pendingSave=null;render();P.simple?.update();});render();return pendingSave;}
+ async function performSave(){
+  if(!editable())return false;const parts=[];if(own.value.trim())parts.push('Rozpoznanie / ocena opisującego: '+own.value.trim());if(doctor.value.trim())parts.push('Rozpoznanie / opinia lekarza'+(name.value.trim()?' ('+name.value.trim()+')':' — lekarz niepodany')+': '+doctor.value.trim());else if(name.value.trim())parts.push('Konsultowano z: '+name.value.trim());if(note.value.trim())parts.push('Dopisek: '+note.value.trim());if(!parts.length){P.ui.notify('Wpisz ocenę lub dopisek.',true);return;}
   const at=time.value?new Date(time.value):new Date();if(!Number.isFinite(at.getTime())){P.ui.notify('Sprawdź datę i godzinę oceny.',true);return;}save.disabled=true;
-  try{await P.timeline.add({kind:'assessment',note:parts.join('\n'),occurredAt:at.toISOString()});for(const n of [own,doctor,name,time,note])n.value='';P.touch('followup-form-saved');if(await P.saveRecord())P.ui.notify('Zapisano dopisek w tym samym kontakcie.');}catch(e){P.ui.notify(e.message,true);}finally{save.disabled=!!P.state.readOnly;render();}
- },'pro-button primary');target.append(save,button('Zapisz kontakt / aktualizację w historii',()=>P.saveRecord()));
+  try{await P.timeline.add({kind:'assessment',note:parts.join('\n'),occurredAt:at.toISOString()});for(const n of [own,doctor,name,time,note])n.value='';P.touch('followup-form-saved');const record=await P.saveRecord();if(record)P.ui.notify('Zapisano dopisek w tym samym kontakcie.');return record;}catch(e){P.ui.notify(e.message,true);return false;}finally{save.disabled=!!P.state.readOnly||!!pendingSave;render();}
+ }
+ const save=button('Zapisz rozpoznania / dopisek do kontaktu',savePending,'pro-button primary');target.append(save,button('Zapisz kontakt / aktualizację w historii',()=>P.saveRecord()));
  const list=el('div');list.id='followup-recent';target.append(el('h3','','Ostatnie kontrole i dopiski tego kontaktu'),list);
  function editable(){if(!P.state.ready||P.state.readOnly||P.state.draftBlocked||P.state.storageUnavailable){P.ui.notify('Zapis kontaktu jest zablokowany.',true);return false;}return true;}
  function eventText(e){return P.ui.formatDate(e.occurredAt)+' — '+(e.kind==='vitals'?'Parametry kontrolne':e.kind==='assessment'?'Ponowna ocena':e.kind==='handoff'?'Przekazanie':'Notatka')+': '+[P.model.formatVitals(e.values),e.note].filter(Boolean).join('; ');}
- function render(){if(!P.state.current)return;const r=P.state.current;info.textContent=(r.fields.name||$('name').value||'Pacjent bez nazwiska')+' · kontakt '+r.id+' · '+(P.state.records.some(x=>x.id===r.id)?'aktualizujesz zapisany kontakt':'szkic — zapisz kontakt, aby później wrócić przez Historię');list.replaceChildren();const entries=(r.timeline||[]).filter(e=>e.status!=='cancelled').slice(-8).reverse();if(!entries.length)list.append(el('p','pro-note','Brak kontroli i dopisków.'));for(const e of entries)list.append(el('pre','pro-followup-entry',eventText(e)));save.disabled=!!P.state.readOnly;}
+ function render(){if(!P.state.current)return;const r=P.state.current;info.textContent=(r.fields.name||$('name').value||'Pacjent bez nazwiska')+' · kontakt '+r.id+' · '+(P.state.records.some(x=>x.id===r.id)?'aktualizujesz zapisany kontakt':'szkic — zapisz kontakt, aby później wrócić przez Historię');list.replaceChildren();const entries=(r.timeline||[]).filter(e=>e.status!=='cancelled').slice(-8).reverse();if(!entries.length)list.append(el('p','pro-note','Brak kontroli i dopisków.'));for(const e of entries)list.append(el('pre','pro-followup-entry',eventText(e)));save.disabled=!!P.state.readOnly||!!pendingSave;}
  async function onEventAdded(e){
   if(SUMMARY_LOCKED){const area=$('summary'),text=eventText(e);if(!area.value.includes(text)){area.value+=[area.value?'\n\n':'',area.value.includes('PRZEBIEG I PONOWNA OCENA:')?'':'PRZEBIEG I PONOWNA OCENA:\n',text].join('');P.touch('explicit-followup-append');await P.flush();}}
   // An explicit new control/dopisek updates an already saved encounter under the same ID.
   if(P.state.records.some(r=>r.id===P.state.current.id)){const saved=await P.saveRecord();if(!saved)P.ui.notify('Dopisek jest w szkicu. Zapis aktualizacji historii wymaga sprawdzenia formularza.',true);}render();
  }
- P.followup={onEventAdded,render};P.on('record-restored',render);P.on('record-changed',render);P.on('records-changed',render);
+ P.followup={onEventAdded,render,savePending,isSaving:()=>!!pendingSave,hasPending:()=>[own,doctor,name,note].some(n=>n.value.trim())};P.on('record-restored',render);P.on('record-changed',render);P.on('records-changed',render);
  const clear=clearForm;clearForm=function(...args){const r=clear(...args);for(const n of [own,doctor,name,time,note])n.value='';return r;};
+});
+
+</script>
+<script>
+// RatMed SMART: progressive disclosure using the original clinical fields and storage.
+document.addEventListener('DOMContentLoaded',()=>{
+ 'use strict';const P=window.TriagePro,$=id=>document.getElementById(id),moves=[],disclosures=[],states=new Map();let mounted=false,lastUrgency='',applying=false,saveTask=null;
+ const node=(tag,cls,text)=>{const n=document.createElement(tag);if(cls)n.className=cls;if(text)n.textContent=text;return n;};
+ const simple=()=>P.navigation.isSimple();
+ function relocate(n,target){const mark=document.createComment('SMART original position');n.before(mark);moves.push({n,target,mark});}
+ function revealField(n){if(!n)return;let parent=n.parentElement;while(parent){if(parent.tagName==='DETAILS')parent.open=true;if(parent.classList.contains('sub-acc-panel')||parent.classList.contains('acc-panel')){parent.hidden=false;const key=parent.dataset.subpanel;if(key){const b=document.querySelector('[data-subacc="'+key+'"]');b?.setAttribute('aria-expanded','true');}}parent=parent.parentElement;}}
+ function hasData(key,root){if(key==='symptoms')return (P.capture?.().symptoms||[]).length>0;if(key==='timeline')return !!P.state.current?.timeline?.length;return [...root.querySelectorAll('input,textarea,select')].some(n=>n.id&&!['sympSearch','v2_template','proposed_interview','ecg_final_mode'].includes(n.id)&&!n.id.startsWith('pro-')&&((n.type==='checkbox'||n.type==='radio')?n.checked&&n.value!=='unknown':!!n.value.trim()));}
+ function disclose(panelKey,title,defaultOpen=false){const panel=$('triage-panel-'+panelKey),sheet=panel.querySelector('.sheet'),d=node('details','smart-disclosure'),sum=node('summary','',title),badge=node('span','smart-section-badge');d.dataset.panel=panelKey;sum.append(badge);d.append(sum);sheet.before(d);d.append(sheet);states.set(d,defaultOpen);disclosures.push({d,badge,panelKey,root:sheet});d.addEventListener('toggle',()=>{if(simple()&&!applying)states.set(d,d.open);});return d;}
+ disclose('symptoms','Objawy — wybierz ocenione odpowiedzi');disclose('psych','Stan psychiczny — jeśli oceniano');disclose('followup','Moja ocena, lekarz i dopiski');disclose('timeline','Przebieg i poprzednie kontrole');
+ // Keep the essential history visible, with the rest available on demand.
+ const hx=$('triage-panel-history-medical').querySelector('.sheet'),hxDetails=node('details','smart-more'),hxBody=node('div');hxDetails.append(node('summary','','Pozostałe informacje z wywiadu'),hxBody);const hxPanel=hx.querySelector('[data-panel="hxmeds"]');hxPanel.before(hxDetails);relocate(hxPanel,hxBody);
+ const hxBasic=node('div','smart-hx-basic clinical-grid');hxBasic.append(node('h3','clinical-span','Choroby, leki i alergie'));hxDetails.before(hxBasic);for(const id of ['interview_disease','meds','allergies'])relocate($(id).parentElement,hxBasic);
+ const reason=$('triage-panel-reason'),template=$('v2_template').closest('.sheet'),templates=node('details','smart-more');templates.id='smart-interview-templates';templates.append(node('summary','','Przykładowe wywiady — pomoc do rozmowy'));template.before(templates);relocate($('proposed_interview').closest('.chief-col'),templates);relocate(template,templates);
+ const general=node('div','smart-general-interview'),glabel=node('label','','Wywiad — najważniejsze informacje');glabel.htmlFor='interview_general';general.append(glabel);reason.querySelector('.section-interview').append(general);relocate($('interview_general'),general);
+ // Compact ECG: no compulsory wave-by-wave description.
+ const ecg=$('triage-panel-ecg'),steps=ecg.querySelector('.ecg-steps'),basic=node('section','smart-ecg-basic'),basicGrid=node('div','clinical-grid');basic.id='smart-ecg-basic';basic.append(node('h3','','Krótki opis EKG'),node('p','smart-hint','Wpisz tylko to, co oceniono. Pomiary i pełny opis są opcjonalne.'),basicGrid);steps.before(basic);
+ for(const id of ['ecg_rate','ecg_rhythm','ecg_st','ecg_dx_conduction'])relocate($(id).parentElement,basicGrid);
+ const note=$('ecg_other').parentElement;relocate(note,basicGrid);
+ const noteLabel=note.querySelector('label');if(noteLabel)noteLabel.textContent='Najważniejsze uwagi / zauważone nieprawidłowości';
+ const qrs=node('details','smart-more');qrs.id='smart-qrs';qrs.append(node('summary','','Czas QRS — jeśli mierzono / przy podejrzeniu bloku'));basic.append(qrs);relocate($('ecg_qrs').parentElement,qrs);
+ const advanced=node('details','smart-ecg-advanced');advanced.id='smart-ecg-details';advanced.append(node('summary','','Pomiary i pełny opis EKG — opcjonalnie'));steps.before(advanced);relocate(steps,advanced);
+ const analysis=node('details','smart-ecg-analysis'),analysisSum=node('summary'),analysisTitle=node('span','','Podpowiedzi interpretacji — tylko dla Ciebie'),analysisBadge=node('span','smart-analysis-badge');analysis.id='smart-ecg-analysis';analysisSum.append(analysisTitle,analysisBadge);analysis.append(analysisSum);$('ecg-differential').before(analysis);relocate($('ecg-differential'),analysis);
+ const description=node('section','smart-ecg-description');description.id='smart-ecg-description';description.append(node('h3','','Opis do karty — tworzony automatycznie'));analysis.before(description);relocate($('ecg_final').parentElement,description);relocate($('ecg_accept'),description);
+ const ecgShortcuts=node('div','smart-ecg-shortcuts');basic.append(ecgShortcuts);
+ const action=(label,handler,id)=>{const b=node('button','pro-small',label);b.type='button';if(id)b.id=id;b.onclick=handler;return b;};
+ ecgShortcuts.append(action('Pomiary ST / LBBB',()=>{P.simple.revealField($('ecg-dx-sgarbossa-inputs'));P.navigation.go('ecg');window.triageECGWorkflow.openMeasurements(true);},'smart-open-st'),action('Zdjęcia LBBB / RBBB',()=>{revealField($('ecg-bbb-comparison'));$('ecg-bbb-comparison').open=true;$('ecg-bbb-comparison').scrollIntoView({block:'start'});},'smart-open-bbb'));
+ // Old explanatory preview remains available in the full view; the editable narrative is primary.
+ const preview=$('ecg_generated'),previewHeading=preview.previousElementSibling;preview.classList.add('smart-duplicate');if(previewHeading?.tagName==='H3')previewHeading.classList.add('smart-duplicate');
+ for(const b of ecg.querySelectorAll('button'))if(b.textContent.startsWith('Możliwe rozpoznania i dalsze')||b.id==='ecg_open_all')b.classList.add('smart-duplicate');
+ const originalHint=preview.nextElementSibling;if(originalHint?.tagName==='P')originalHint.classList.add('smart-duplicate');
+ ecg.addEventListener('click',event=>{const b=event.target.closest('button');if(simple()&&b?.textContent.startsWith('Uzupełnij pomiary ST'))revealField($('ecg-dx-sgarbossa-inputs'));},true);
+ for(const d of [hxDetails,templates,advanced,analysis,qrs]){states.set(d,false);d.addEventListener('toggle',()=>{if(simple()&&!applying)states.set(d,d.open);});}
+ function shortOption(selectId,value,label){const o=[...$(selectId).options].find(o=>o.value===value);if(o){o.value=value;o.textContent=label;}}
+ shortOption('ecg_st','Bez zauważonych uniesień ani obniżeń ST po ocenie','Bez uniesień i obniżeń — oceniono');
+ const care=$('simple-route-care'),careActions=node('div','smart-care-actions smart-only');careActions.append(action('＋ Kontrolne parametry',()=>P.timeline.edit(null,'vitals'),'smart-add-control'),action('＋ Moja ocena / lekarz',()=>P.navigation.go('followup'),'smart-add-assessment'));const lastControl=node('p','smart-hint');lastControl.id='smart-last-control';careActions.append(lastControl);care.prepend(careActions);
+ function revealPanel(key,{explicit=false}={}){if(!simple())return;const item=disclosures.find(x=>x.panelKey===key);if(item&&explicit){item.d.open=true;states.set(item.d,true);}}
+ function update({restored=false}={}){
+  if(!mounted||!P.state.current)return;
+  for(const item of disclosures){const data=hasData(item.panelKey,item.root);item.badge.textContent=data?' · wpisano dane':'';if(restored&&data){item.d.open=true;states.set(item.d,true);}}
+  const current=P.state.current,controls=(current.timeline||[]).filter(e=>e.kind==='vitals'&&e.status!=='cancelled').sort((a,b)=>a.occurredAt.localeCompare(b.occurredAt)),last=controls.at(-1);lastControl.textContent=last?'Ostatni pomiar: '+P.ui.formatDate(last.occurredAt)+' · '+P.model.formatVitals(last.values):'Kontrole dopisujesz z nową godziną. Parametry przy przyjęciu pozostają zachowane.';
+  const data=window.triageECGDifferential.read(),result=window.TriageECGReasoning.analyze(data),urgent=result.findings.filter(f=>f.urgent),key=current.id+':'+urgent.map(f=>f.id).join('|')+':'+result.errors.join('|');
+  analysisBadge.textContent=urgent.length?' · pilna ocena':result.errors.length?' · sprawdź sprzeczności':'';analysisBadge.dataset.level=urgent.length?'urgent':result.errors.length?'error':'';
+  if(simple()&&(urgent.length||result.errors.length)&&key!==lastUrgency){analysis.open=true;revealField($('ecg-dx-results'));}lastUrgency=key;
+  if(simple()&&(['lbbb','rbbb','paced','other'].includes($('ecg_dx_conduction').value)||$('ecg_qrs').value))qrs.open=true;
+  if(simple())$('ecg_accept').hidden=$('ecg_final_mode').value!=='manual';else $('ecg_accept').hidden=false;
+  const print=$('smart-save-print');if(print)print.textContent=P.state.readOnly?'Drukuj podgląd':'Zapisz i drukuj kartę';
+  const save=$('smart-save');if(save)save.disabled=!!saveTask||P.followup?.isSaving()||P.state.readOnly||P.state.draftBlocked||P.state.storageUnavailable||!P.state.ready;
+ }
+ function applyLayout(){applying=true;try{const compact=simple();for(const m of compact?moves:[...moves].reverse()){if(compact)m.target.append(m.n);else m.mark.parentNode.insertBefore(m.n,m.mark);}for(const {d} of disclosures)d.open=compact?!!states.get(d):true;for(const d of [hxDetails,templates,advanced,analysis,qrs])d.open=compact?!!states.get(d):true;lastUrgency='';document.body.classList.toggle('smart-layout',compact);$('smart-layout')&&($('smart-layout').value=compact?'simple':'full');if(!compact)$('ecg_accept').hidden=false;}finally{applying=false;}update();P.workspace?.update();}
+ async function persist(){if(saveTask)return saveTask;saveTask=(async()=>P.followup?.hasPending()?P.followup.savePending():P.saveRecord())();update();try{return await saveTask;}finally{saveTask=null;update();}}
+ function mount(){if(mounted)return;mounted=true;
+  const dock=$('pro-patient-dock'),actions=dock.querySelector('.pro-dock-actions');actions.classList.add('smart-legacy-dock-actions');
+  const quick=node('div','smart-quick-actions'),save=action('Zapisz kontakt',async()=>{save.disabled=true;try{await persist();}finally{update();}},'smart-save');
+  quick.append(action('＋ Nowy pacjent',()=>P.newEncounter(),'smart-new'),action('Historia / powrót',()=>P.navigation.go('history'),'smart-history'),save,action('Karta / wydruk',()=>P.navigation.go('summary'),'smart-card'));dock.append(quick);
+  const note=node('p','smart-save-hint','Szkic zapisuje się automatycznie. „Zapisz kontakt” dodaje go do Historii.');dock.append(note);
+  const more=node('details','smart-more smart-settings'),choices=node('select'),label=node('label','','Układ aplikacji');choices.id='smart-layout';label.htmlFor=choices.id;for(const [value,text] of [['simple','SMART — krótki widok'],['full','Pełny formularz']]){const o=node('option','',text);o.value=value;choices.append(o);}choices.onchange=()=>P.navigation.setLayout(choices.value);more.append(node('summary','','Układ i sposób pracy'),label,choices);document.querySelector('#triage-panel-settings .settings-grid').prepend(more);
+  const print=action('Zapisz i drukuj kartę',async()=>{if(!P.workspace.canUse())return;print.disabled=true;try{if(P.state.readOnly||await persist())$('btn_pdf').click();}finally{print.disabled=false;}},'smart-save-print');print.classList.add('primary');$('btn_save').before(print);$('btn_summary').textContent='Odśwież opis z formularza';$('btn_save').textContent='Zapisz kontakt';$('btn_pdf').textContent='Drukuj / PDF';
+  const validation=$('pro-validation');validation.hidden=true;applyLayout();update();
+ }
+ P.simple={mount,applyLayout,revealPanel,revealField,update,persist};
+ P.on('record-changed',()=>update());P.on('record-restored',()=>{lastUrgency='';update({restored:true});});P.on('save-status',()=>update());P.on('records-changed',()=>update());
+ P.on('navigation-changed',({key})=>{if(simple()&&key==='summary')$('pro-validation').hidden=!P.workspace.issues().some(i=>i.level==='error');});
 });
 
 </script>
@@ -13429,8 +13532,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   const area=$('printArea');
   function header(label){
    const node=P.ui.el('header','print-pro-header');node.append(P.ui.el('h1','',label));
-   if(title==='Historia kontaktów')node.append(P.ui.el('p','print-pro-meta','Wydruk: '+new Date().toLocaleString('pl-PL')+' · PRO '+P.config.appVersion+'\nZapisane kontakty: '+P.state.records.length));
-   else node.append(P.ui.el('p','print-pro-identity',[$('name').value||'Pacjent bez nazwiska',$('age').value?$('age').value+' lat':'',$('sex').value].filter(Boolean).join(' · ')),P.ui.el('p','print-pro-meta','Kontakt: '+P.state.current.id+'\nWydruk: '+new Date().toLocaleString('pl-PL')+' · PRO '+P.config.appVersion+'\nBaza kontaktu: '+P.state.current.meta.knowledgeVersion));
+   if(title==='Historia kontaktów')node.append(P.ui.el('p','print-pro-meta','Wydruk: '+new Date().toLocaleString('pl-PL')+' · '+(P.config.appName||'PRO')+' '+P.config.appVersion+'\nZapisane kontakty: '+P.state.records.length));
+   else node.append(P.ui.el('p','print-pro-identity',[$('name').value||'Pacjent bez nazwiska',$('age').value?$('age').value+' lat':'',$('sex').value].filter(Boolean).join(' · ')),P.ui.el('p','print-pro-meta','Kontakt: '+P.state.current.id+'\nWydruk: '+new Date().toLocaleString('pl-PL')+' · '+(P.config.appName||'PRO')+' '+P.config.appVersion+'\nBaza kontaktu: '+P.state.current.meta.knowledgeVersion));
    return node;
   }
   area.replaceChildren();
@@ -13467,7 +13570,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   buildSummaryText=function(){const additional=[];const identity=['name','pesel','dob','sex'].map(id=>$(id)?.value?({name:'Pacjent',pesel:'PESEL',dob:'Data urodzenia',sex:'Płeć'}[id])+': '+$(id).value:'').filter(Boolean).join(' · ');if(identity)additional.push(identity);for(const [id,label,unit] of [['bp','Ciśnienie',' mmHg'],['hr','Tętno','/min'],['spo2','Saturacja','%'],['temp','Temperatura',' °C'],['glucose','Glukoza',' mg/dl']])if($(id)?.value)additional.push(label+': '+$(id).value+unit);if($('resp_rate')?.value)additional.push('Częstość oddechów: '+$('resp_rate').value+'/min');if($('gcs_current')?.value)additional.push('GCS: '+$('gcs_current').value);if($('pain_current')?.value)additional.push('NRS: '+$('pain_current').value+'/10');const parts=window.triageClinicalSummaryParts?window.triageClinicalSummaryParts():[legacyBuild()];const identityText=identity;if(identity)additional.shift();return [identityText?('DANE PACJENTA\n'+identityText):'',parts[0],additional.length?'PARAMETRY PRZY PRZYJĘCIU\n'+additional.join('\n'):'',...parts.slice(1),P.timeline.summary()].filter(Boolean).join('\n\n');};
   let refreshScheduled=false;updateSummary=function(...args){if(P.state.restoring)return;if(SUMMARY_LOCKED){P.workspace.update();return;}legacyUpdate(...args);const next=P.timeline.summary(),area=$('summary');if(SUMMARY_LOCKED&&next!==lastTimelineBlock){if(lastTimelineBlock&&area.value.includes(lastTimelineBlock))area.value=area.value.replace(lastTimelineBlock,next).trim();else if(!lastTimelineBlock&&next)area.value=[area.value,next].filter(Boolean).join('\n\n');}lastTimelineBlock=next;if(!refreshScheduled&&P.state.ready){refreshScheduled=true;requestAnimationFrame(()=>{refreshScheduled=false;P.workspace.update();});}};
   saveDraft=()=>flush().catch(()=>false);loadDraft=()=>false;snapshot=capture;loadHistory=()=>P.state.records;renderHistory=renderProHistory;applySnapshot=raw=>restore(raw);clearForm=()=>newEncounter();
-  P.timeline.mount();P.workspace.mount();P.backup.mount();P.updates.mount();P.health.mount();P.learning.mount();bind();
+  P.timeline.mount();P.workspace.mount();P.backup.mount();P.updates.mount();P.health.mount();P.learning.mount();bind();P.simple?.mount();
   try{await P.storage.init();await acquireWriter();P.state.records=await P.storage.all();let draft=await P.storage.getMeta('draft'),ahead;try{ahead=JSON.parse(localStorage.getItem('triage_pro_writeahead')||'null');}catch(e){}if(ahead?.record&&(!draft||ahead.record.updatedAt>=draft.updatedAt))draft=ahead.record;
    P.state.ready=true;P.state.restoring=false;if(draft){try{await restore(draft,{persist:false,confirm:false});}catch(error){P.state.unreadableDraft=draft;P.state.draftBlocked=true;P.ui.notify('Nie odczytano szkicu; nie zostanie nadpisany. '+error.message,true);}}else await restore(newRecord(),{persist:false,confirm:false});
    if(P.state.readOnly){const banner=P.ui.el('div','pro-safe-banner',P.state.lockError);banner.append(P.ui.button('Sprawdź ponownie / odśwież',()=>location.reload(),'pro-small'));document.querySelector('.topbar').after(banner);P.ui.status('error','Tryb podglądu — zapis w innej karcie.');}else if(!P.state.draftBlocked)await flush();
